@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        .container li {
+            margin: 20px 0;
+        }
+
+        .container button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>
+            <button id="empty">Empty</button>
+        </p>
+        <ul class="list">
+            <li>Project 1<button class="delete">Delete</button></li>
+            <li>Project 2<button class="delete">Delete</button></li>
+            <li>Project 3<button class="delete">Delete</button></li>
+            <li>Project 4<button class="delete">Delete</button></li>
+            <li>Project 5<button class="delete">Delete</button></li>
+            <li>Project 6<button class="delete">Delete</button></li>
+            <li>Project 7<button class="delete">Delete</button></li>
+            <li>Project 8<button class="delete">Delete</button></li>
+            <li>Project 9<button class="delete">Delete</button></li>
+            <li>Project 10<button class="delete">Delete</button></li>
+        </ul>
+    </div>
+
+    <script>
+        var emptyBtn = document.getElementById("empty");
+        var list = document.querySelector('.list');
+        emptyBtn.onclick = function () {
+            list.innerHTML = "";
+        }
+
+        // var deleteTags = document.getElementsByClassName("delete");
+        // for (var i = 0; i < deleteTags.length; i++) {
+        //     deleteTags[i].onclick = function () {
+        //         this.parentNode.remove();
+        //     }
+        // }
+
+        var btnDels = document.querySelectorAll(".list .delete");
+        
+        function regDelEvent (btn) {
+            btn.onclick = function () {
+                btn.parentElement.remove();
+            }
+        }
+
+        for (var i = 0; i < btnDels.length; i++) {
+            regDelEvent(btnDels[i]);
+        }
+    </script>
+</body>
+
+</html>

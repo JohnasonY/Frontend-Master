@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../Common/myFunctions.js"></script>
+    <script>
+        var num = +prompt("Enter an even integer greater than 2");
+        if (isNaN(num) || num < 2 || num % 2 !== 0) {
+            console.log("Input Incorrect");
+        } else {
+            for (var i = 2; i <= num - 2; i++) {
+                if (isPrime(i) && isPrime(num - i)) {
+                    console.log(`${num} = ${i} + ${num - i}`);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

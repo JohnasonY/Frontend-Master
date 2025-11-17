@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="btnDiv">
+
+    </div>
+    <!-- <div style="margin-top:20px;">
+        <img src="img/1.jpg" alt="" id="imgShow" width="250" height="250">
+    </div> -->
+    <div class="imgContainer">
+        <img src="img/1.jpg" alt="" id="imgShow" width="250" height="250">
+    </div>
+    <script>
+        var imgFolderPath = "img";
+        var imgName = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
+        var btnDiv = document.getElementById("btnDiv");
+        var frag = document.createDocumentFragment();
+        var img = document.querySelector(".imgContainer img");
+
+        for (var i = 0; i < imgName.length; i++) {
+            var newBtn = document.createElement("button");
+            newBtn.innerHTML = `Image ${i+1}`;
+            newImgSrc = imgFolderPath + `/${i+1}.jpg`;
+            regImgButton(newBtn, img, newImgSrc);
+            frag.appendChild(newBtn);
+        }
+        btnDiv.appendChild(frag);
+
+        function regImgButton(btn, img, imgSrc) {
+            btn.addEventListener("click", function () {
+                img.src = imgSrc;
+            })
+        }
+    </script>
+</body>
+
+</html>

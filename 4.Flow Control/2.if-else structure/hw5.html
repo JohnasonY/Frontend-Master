@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Write a program for a Rock–Paper–Scissors game between the user and the computer.
+        // The user enters "scissors", "rock", or "paper", and the program compares it with the computer’s choice to determine the winner.
+        var userChoice = prompt("Please enter rock, paper or scissors");
+        if (userChoice !== "rock" && userChoice !== "paper" && userChoice !== "scissors") {
+            console.log("Input incorrect");
+        } else {
+            var rad = Math.random()
+            var computerChoice;
+            if (rad < 0.333) {
+                computerChoic = "rock";
+            } else if (rad < 0.666) {
+                computerChoic = "paper";
+            } else {
+                computerChoice = "scissors";
+            }
+
+            if (userChoice === computerChoice){
+                console.log("Tie");
+            } else if (userChoice === "rock" && computerChoice === "scissors" || 
+                       userChoice === "paper" && computerChoice === "rock" ||
+                       userChoice === "scissors" && computerChoice === "paper") {
+                console.log("You win");
+            } else {
+                console.log("You lose");
+            }
+        }
+    </script>
+</body>
+
+</html>

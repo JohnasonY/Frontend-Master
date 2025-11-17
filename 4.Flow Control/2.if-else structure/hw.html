@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. Prompt the user to enter a 3-digit number. If it is not a 3-digit number, output input incorret, 
+        // else determine whether the number can be divided by 13
+
+        // var userInput = prompt("Enter a 3-digit number");
+        // if (userInput === null || isNaN(+userInput)) 
+        // {
+        //     console.log("Input is not a number");      
+        // }
+        // else if (+userInput / 100 < 1) 
+        // {
+        //     console.log("Input is not a 3-digit number");
+        // }
+        // else if (+userInput % 13 === 0)
+        // {
+        //     console.log("The number you entered can be divided by 13");
+        // }
+        // else
+        // {
+        //     console.log("The number you entered can not be divided by 13");
+        // }
+
+        // 2. Prompt the user to enter a score, determine that score belong to which intervals and output the resut 
+        // (A:90-100 B:70-89 C:60-69 D:40-59 E:0-39), if the user's input is not a number between 0 and 100, output input incorrect
+
+        // var score = prompt("Enter a score between 0-100");
+        // var scoreNum = +score
+        // if (score === null || isNaN(+scoreNum))
+        // {
+        //     console.log("Input is not a number");
+        // }
+        // else if (scoreNum < 0 || scoreNum > 100)
+        // {
+        //     console.log("Input is not a number between 0-100");
+        // }
+        // else if (scoreNum >= 90)
+        // {
+        //     console.log("Grade: A");
+        // }
+        // else if (scoreNum >= 70)
+        // {
+        //     console.log("Grade: B");
+        // }
+        // else if (scoreNum >= 60)
+        // {
+        //     console.log("Grade: C");
+        // }
+        // else if (scoreNum >= 40)
+        // {
+        //     console.log("Grade: D");   
+        // }
+        // else
+        // {
+        //     console.log("Grade: E");
+        // }
+
+
+        // 3. According to the calculation method recommended by the World Health Organization:
+
+        // For men: Standard weight = (Height in cm - 80) × 70%
+
+        // For women: Standard weight = (Height in cm - 70) × 60%
+
+        // A weight within ±10% of the standard weight is considered normal.
+        // A weight below 10% of the standard weight is considered underweight.
+        // A weight above 10% of the standard weight is considered overweight.
+
+        // Write a program that allows the user to input their gender, height, and weight, and then determine their health status.
+
+        // There are three possible health statuses:
+
+        // Your weight is normal. Please keep it up.
+
+        // You are underweight. Please improve your nutrition.
+
+        // You are overweight. Please exercise more.
+
+        // var gender = prompt("Enter your gender (male or female)");
+        // var height = prompt("Enter your height in cm");
+        // var weight = prompt("Enter your weight in kg");
+
+        // if (gender === "male") {
+        //     var standardWeight = (height - 80) * 0.7
+        //     var weightLowerRange = standardWeight * (1 - 0.1)
+        //     var weightUpperRange = standardWeight * (1 + 0.1)
+
+        //     if (weight >= weightLowerRange && weight <= weightUpperRange) {
+        //         console.log("Your weight is normal. Please keep it up");
+        //     } else if (weight < weightLowerRange) {
+        //         console.log("You are underweight. Please improve your nutrition");
+        //     } else {
+        //         console.log("You are overweight. Please exercise more");
+        //     }
+        // } else if (gender === "female") {
+        //     var standardWeight = (height - 70) * 0.6
+        //     var weightLowerRange = standardWeight * (1 - 0.1)
+        //     var weightUpperRange = standardWeight * (1 + 0.1)
+
+        //     if (weight >= weightLowerRange && weight <= weightUpperRange) {
+        //         console.log("Your weight is normal. Please keep it up");
+        //     } else if (weight < weightLowerRange) {
+        //         console.log("You are underweight. Please improve your nutrition");
+        //     } else {
+        //         console.log("You are overweight. Please exercise more");
+        //     }
+        // }
+
+
+        // 4. A financial company has launched a new investment service with the following rules:
+
+        // If the invested amount is less than 500,000, the annual return is calculated at 4%.
+        // If the invested amount is 500,000 or more (up to 2,000,000), the annual return is calculated at 4.5%.
+        // If the invested amount is greater than 2,000,000, in addition to the regular investment return, the investor also receives an extra 10% of the earned return.
+
+        // Write a program that allows the user to input the investment amount and the investment period in years, then calculate the total profit at maturity.
+
+        var investAmount = prompt("Enter your investment amount");
+        var investYears = prompt("Enter your investment period in years");
+        var profit;
+
+        if (investAmount < 500000 && investAmount > 0) {
+            profit = investAmount * investYears * 0.04
+        }
+        else if (investAmount >= 500000) {
+            profit = investAmount * investYears * 0.045
+        }
+        
+        if (investAmount > 2000000) {
+            profit = profit + profit * 0.1
+        }
+
+        console.log(`You earn $${profit}`);
+        
+    </script>
+</body>
+
+</html>

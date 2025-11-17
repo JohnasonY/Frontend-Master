@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. Declare a variable to store the score, output whether that score >= 60 (true or false)
+        var score = 94;
+        console.log(score >= 60);
+
+        // 2. Declare a variable to store the year, output how many days in Feburary
+        var year = 2025;
+        var isLeapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+        isLeapYear && console.log(29);
+        isLeapYear || console.log(28);
+
+        // 3. Declare variables to store principal, months, annualRate, calculate the interest
+        // if the principal >= 100,000, increase annualRate by 20% (e.x annualRate: 4% -> 4% * 1.2)
+        var principal = 100000,
+            months = 6,
+            annualRate = 0.04,
+            interest;
+
+        principal >= 100000 && (annualRate = annualRate * (1 + 0.2));
+
+        interest = principal * (annualRate / 12) * months;
+        console.log(interest);
+    </script>
+</body>
+
+</html>

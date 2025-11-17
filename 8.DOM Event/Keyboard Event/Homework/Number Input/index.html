@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <script>
+        // make an input can only take number, must use type="text" input
+        var input = document.querySelector("input");
+        var regExp = /[0-9]/;
+        input.onkeypress = function (e) {
+            if (!regExp.test(e.key)) {
+                e.preventDefault();
+            }
+        }
+    </script>
+</body>
+
+</html>

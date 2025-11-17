@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            border: 2px solid;
+            background: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="item">
+
+    </div>
+    <p>
+        <button id="btnBegin">begin</button>
+        <button id="btnEnd">end</button>
+    </p>
+    <script src="../../plugins/helpers.js"></script>
+    <script src="../../plugins/animate.js"></script>
+    <script>
+        var div = document.querySelector("div");
+        var animate = new this.myPlugin.Animate({
+            interval: 30,
+            duration: 5000,
+            begin: {
+                left: 100,
+                top: 100,
+                r: 0,
+                g: 0,
+                b: 0
+            },
+            end: {
+                left: 1000,
+                top: 500,
+                r: 200,
+                g: 200,
+                b: 200
+            },
+            onstart: function () {
+                console.log("animation start");
+            },
+            onmove: function () {
+                div.style.left = this.curData.left + "px";
+                div.style.top = this.curData.top + "px";
+                div.style.background = `rgb(${this.curData.r},${this.curData.g},${this.curData.b})`;
+            },
+            onover: function () {
+                console.log("animation over");
+            }
+        });
+        console.log(animate);
+
+        var btnBegin = document.getElementById("btnBegin");
+        btnBegin.onclick = function () {
+            animate.start();
+        }
+
+        var btnEnd = document.getElementById("btnEnd");
+        btnEnd.onclick = function () {
+            animate.stop();
+        }
+    </script>
+</body>
+
+</html>

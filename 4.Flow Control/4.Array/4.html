@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1245112, 125, 62, 21, 16, 2, 3, 16, 11];
+
+        for (var index in arr) {
+            var isPrime = true;
+
+            for (var i = 2; i <= arr[index] - 1; i++) {
+                if (arr[index] % i === 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if (isPrime === true) {
+                console.log(arr[index]);
+            }
+        }
+    </script>
+</body>
+
+</html>

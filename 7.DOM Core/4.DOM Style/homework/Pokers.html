@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        Use the images in the pokers folder and generate them on the webpage in sequence using vanilla JavaScript.
+        Do not use any stylesheets (CSS).
+    </p>
+</body>
+
+<script>
+    var div = document.createElement("div");
+
+    // create an array to store the names of all the poker images
+    var pokersArr = [];
+    for (var i = 1; i <= 13; i++) {
+        for (var j = 1; j <= 4; j++) {
+            pokersArr.push(`${i}_${j}.jpg`);
+        }
+    }
+    pokersArr.push("14_1.jpg");
+    pokersArr.push("15_1.jpg");
+
+    for (var l = 0; l < pokersArr.length; l++) {
+        var img = document.createElement("img");
+        img.setAttribute("src", `pokers/${pokersArr[l]}`);
+        div.appendChild(img);
+    }
+
+    var body = document.querySelector("body");
+    body.appendChild(div);
+</script>
+
+</html>

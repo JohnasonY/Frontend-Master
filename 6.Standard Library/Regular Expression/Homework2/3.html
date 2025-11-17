@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function replaceSensitiveWords(str, senArr) {
+            var result;
+            var regex = new RegExp(senArr.join("|"), "g");
+            result = str.replace(regex, "****");
+            return result;
+        }
+
+        var senArr = ["Communist Party", "too young too simple", "Marketing"];
+        var str = "asgasasgCommunist Partyasgasgasgasfdasdtoo young too simpleasfgasga";
+        console.log(replaceSensitiveWords(str, senArr));
+        
+    </script>
+</body>
+
+</html>

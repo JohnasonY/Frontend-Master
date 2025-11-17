@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../plugins/helpers.js"></script>
+    <script>
+        var obj1 = {
+            x: 1,
+            y: 2,
+            z: 3,
+            subObj: {
+                a: "asfa",
+                b: "12512"
+            }
+        }
+
+        var obj2 = {
+            x: "abc",
+            y: "bcd",
+            h: "aaa"
+        }
+
+        var newObj = myPlugin.mixin(obj1, obj2);
+        console.log(newObj);
+
+        var clonedObj = myPlugin.clone(obj1, true);
+        console.log(clonedObj);
+    </script>
+</body>
+
+</html>

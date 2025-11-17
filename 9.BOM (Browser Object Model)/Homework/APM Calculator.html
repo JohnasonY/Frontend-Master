@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        p {
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        Countdown: <span id="countDown">5</span>
+    </p>
+    <p>
+        Click Count: <span id="clickCount">0</span>
+    </p>
+    <p>
+        <button id="btnStart">Click</button>
+        <button id="btnReset">Reset</button>
+    </p>
+
+    <script>
+        var btnStart = document.getElementById("btnStart"),
+            btnReset = document.getElementById("btnReset");
+        var countDown = document.getElementById("countDown");
+        var timeLeft = 5,
+            timer;
+
+        var count = 0,
+            clickCount = document.getElementById("clickCount");
+        var isStarted = false;
+
+        function clickCountFn() {
+            count++;
+            clickCount.innerHTML = count;
+        }
+
+        btnStart.addEventListener("click", function () {
+            if (timer && !isStarted) {
+                btnStart.addEventListener("click", clickCountFn);
+                isStarted = true;
+            } else if (!timer) {
+                timer = setInterval(function () {
+                    timeLeft--;
+                    if (timeLeft === -1) {
+                        timeLeft = 0;
+                        clearInterval(timer);
+                        timer = undefined;
+                        btnStart.removeEventListener("click", clickCountFn);
+                    }
+                    countDown.innerHTML = timeLeft;
+                }, 1000);
+            }
+        })
+
+        btnReset.addEventListener("click", function () {
+            isStarted = false;
+            timeLeft = 5;
+            countDown.innerHTML = timeLeft;
+            count = 0;
+            clickCount.innerHTML = count;
+
+            clearInterval(timer);
+            timer = undefined;
+        })
+    </script>
+</body>
+
+</html>

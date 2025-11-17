@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        <input type="text">
+        <button id="btnAdd">add</button>
+    </p>
+    <ul id="itemList">
+        <li>
+            <span>Item 1</span>
+            <button>Delete</button>
+        </li>
+        <li>
+            <span>Item 2</span>
+            <button>Delete</button>
+        </li>
+        <li>
+            <span>Item 3</span>
+            <button>Delete</button>
+        </li>
+    </ul>
+
+    <script>
+        var btnAdd = document.getElementById("btnAdd");
+        var itemList = document.getElementById("itemList");
+
+        function addHandler() {
+            var frag = document.createDocumentFragment();
+            var li = document.createElement("li");
+            var itemText = document.querySelector("p [type=\"text\"]").value;
+            if (itemText === "") {
+                alert("New item can not be empty");
+                return;
+            }
+            var span = document.createElement("span");
+            span.innerHTML = itemText;
+            var btnDelete = document.createElement("button");
+            btnDelete.innerHTML = "Delete";
+
+            // append span and btn element as the children of li
+            li.appendChild(span);
+            li.appendChild(btnDelete);
+
+            // append li to fragment
+            frag.appendChild(li);
+
+            // append fragment as the children of item list
+            itemList.appendChild(frag);
+
+            document.querySelector("p [type=\"text\"]").value = "";
+
+        }
+
+        btnAdd.addEventListener("click", addHandler);
+
+        function deleteHandler(event) {
+            if (event.target.tagName === "BUTTON") {
+                event.target.parentNode.remove();
+            }
+        }
+
+        itemList.addEventListener("click", deleteHandler);
+    </script>
+</body>
+
+</html>

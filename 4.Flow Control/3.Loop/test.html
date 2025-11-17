@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var min = 135,
+            max = 185
+        isFound = false;
+
+        for (i = min; i <= max; i++) {
+            if (i % 26 === 0) {
+                console.log(i);
+                isFound = true
+                break;
+            }
+        }
+
+        if (!isFound) {
+            console.log("Not found");
+        }
+    </script>
+</body>
+
+</html>

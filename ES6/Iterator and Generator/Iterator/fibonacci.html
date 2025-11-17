@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1 1 2 3 5 8 13
+      function createFiboIterator() {
+        let prev1 = 1, // previous one value
+          prev2 = 1, // previous two value
+          n = 1; // current position
+
+        return {
+          next() {
+            let value;
+            if (n <= 2) {
+              // the first two value
+              value = 1;
+            } else {
+              value = prev1 + prev2;
+            }
+            // move prev2 and prev1 one step forward
+            prev2 = prev1;
+            prev1 = value;
+            n++;
+            return {
+              value,
+              done: false,
+            };
+          },
+        };
+      }
+
+      var fiboIterator = createFiboIterator();
+      
+    </script>
+  </body>
+</html>

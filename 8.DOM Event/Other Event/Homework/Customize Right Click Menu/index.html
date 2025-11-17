@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #newMenu {
+            width: 70px;
+            height: 100px;
+            background-color: #ccccccfa;
+            position: fixed;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var body = document.querySelector("body");
+        var newMenu = document.createElement("div");
+        newMenu.id = "newMenu";
+        body.append(newMenu);
+        document.oncontextmenu = function (e) {
+            e.preventDefault();
+        }
+        document.addEventListener("mouseup", function (e) {
+            if (e.button === 2) {
+                var mouseLeft = e.clientX,
+                    mouseTop = e.clientY;
+
+                var menuStyle = getComputedStyle(newMenu),
+                    menuWidth = parseFloat(menuStyle.width),
+                    menuHeight = parseFloat(menuStyle.height);
+
+                var menuLeft = mouseLeft,
+                    menuTop = mouseTop;
+                // if menu goes too far right 
+                if (mouseLeft + menuWidth > document.documentElement.clientWidth) {
+                    menuLeft -= menuWidth;
+                }
+                // if menu goes too far down
+                if (mouseTop + menuHeight > document.documentElement.clientHeight) {
+                    menuTop -= menuHeight;
+                }
+                newMenu.style.left = menuLeft + "px";
+                newMenu.style.top = menuTop + "px";
+                newMenu.style.display = "block";
+            } else {
+                newMenu.style.display = "none";
+            }
+        })
+    </script>
+</body>
+
+</html>

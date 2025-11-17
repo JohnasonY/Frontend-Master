@@ -1,0 +1,31 @@
+#gameBoard {
+  margin: 0 auto;
+  position: relative;
+}
+
+#gameBoard .item {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background-size: 100% 100%;
+}
+
+#gameBoard .wall {
+  background-image: url("../imgs/wall.jpg");
+}
+
+#gameBoard .box {
+  background-image: url("../imgs/box.png");
+}
+
+#gameBoard .player {
+  background-image: url("../imgs/player.png");
+}
+
+#gameBoard .correctBox {
+    background-image: url("../imgs/over_box.png");
+}
+
+#gameBoard .correctPosition {
+    border: 2px solid rgb(24, 151, 24);
+}

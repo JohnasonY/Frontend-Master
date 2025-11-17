@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #clockContainer {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="clockContainer">
+        <h1 id="h1clock">
+
+        </h1>
+    </div>
+    <script>
+        var h1clock = document.getElementById("h1clock");
+
+        function setTime() {
+            var now = new Date(),
+                hours = now.getHours(),
+                minutes = now.getMinutes(),
+                seconds = now.getSeconds();
+
+            h1clock.innerHTML =
+                `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+        }
+
+        setTime();
+        setInterval(setTime, 1000);
+    </script>
+</body>
+
+</html>

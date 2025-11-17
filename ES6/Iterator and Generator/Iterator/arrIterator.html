@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const arr = [1, 3, 5, 15, 175, 5789];
+
+      /** array iterator creator
+       * @params {array} arr
+       * @returns {object}
+       */
+      const createIterator = (arr) => {
+        let i = 0;
+        return {
+          next() {
+            let data = {
+              value: arr[i],
+              done: i >= arr.length,
+            };
+            i++;
+            return data;
+          },
+        };
+      };
+
+      const iter = createIterator(arr);
+
+      let data = iter.next();
+      while (!data.done) {
+        // the data is still valid
+        console.log(data.value);
+        data = iter.next();
+      }
+    </script>
+  </body>
+</html>

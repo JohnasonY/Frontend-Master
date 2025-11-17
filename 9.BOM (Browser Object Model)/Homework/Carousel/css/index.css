@@ -1,0 +1,85 @@
+.container {
+    width: 520px;
+    height: 280px;
+    background-color: rgb(199, 48, 48);
+    margin: 0 auto;
+    position: relative;
+    border: 2px solid;
+    overflow: hidden;
+}
+
+/* .container .imgs {
+    overflow: hidden;
+} */
+
+.container .imgs img {
+    width: 520px;
+    height: 280px;
+    display: block;
+}
+
+.container .imgs a {
+    float: left;
+}
+
+.container .dots {
+    position: absolute;
+    /* height: 30px; */
+    background-color: rgba(255, 255, 255, 0.3);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 12px;
+    padding: 2px 4px;
+    border-radius: 8px;
+}
+
+.container .dots span {
+    float: left;
+    width: 8px;
+    height: 8px;
+    margin: 2px;
+    background-color: #ffff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.container .dots span.active {
+    background-color: #f40;
+}
+
+.container .arrow .item {
+    position: absolute;
+    top: 120px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #ffff;
+    line-height: 30px;
+    cursor: pointer;
+    width: 20px;
+    height: 30px;
+}
+
+.container .arrow {
+    display: none;
+}
+
+.container:hover .arrow {
+    display: block;
+}
+
+.container .arrow .item:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.container .arrow .left {
+    left: 0;
+    border-radius: 0 17px 17px 0;
+}
+
+.container .arrow .right {
+    right: 0;
+    border-radius: 17px 0 0 17px;
+    padding-left: 7px;
+    box-sizing: border-box;
+
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function sum(a, b) {
+            if (isNaN(a) || isNaN(b)) {
+                throw new Error("Both input are not numbers");
+            }
+            return a + b;
+        }
+
+        var n1 = prompt("Enter the first number");
+        var n2 = prompt("Enter the second number");
+
+        console.log(sum(n1, n2));
+    </script>
+</body>
+
+</html>

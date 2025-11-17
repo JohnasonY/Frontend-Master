@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var usersArr = [{
+            username: "Jax",
+            password: "jaxyung123"
+        }, {
+            username: "James",
+            password: "james456"
+        }, {
+            username: "Tony",
+            password: "helloworld"
+        }]
+
+        var userName = prompt("Enter username");
+        var password = prompt("Enter password");
+
+        var success = false;
+        for (var index in usersArr) {
+            if (usersArr[index].username === userName && usersArr[index].password === password) {
+                success = true;
+                console.log("Login Success");
+            }
+        }
+
+        if (success === false) {
+            console.log("Username or Password incorrect");
+        }
+    </script>
+</body>
+
+</html>

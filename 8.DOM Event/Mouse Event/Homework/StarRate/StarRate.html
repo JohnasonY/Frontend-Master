@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .score span {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="./images/empty.png" alt="0">
+        <img src="./images/empty.png" alt="1">
+        <img src="./images/empty.png" alt="2">
+        <img src="./images/empty.png" alt="3">
+        <img src="./images/empty.png" alt="4">
+    </div>
+    <div class="score">
+        <span>very bad</span>
+        <span>bad</span>
+        <span>normal</span>
+        <span>good</span>
+        <span>very good</span>
+    </div>
+
+    <script>
+        var imgObjs = document.querySelectorAll(".container img");
+
+        var spans = document.querySelectorAll(".score span");
+
+        for (let i = 0; i < imgObjs.length; i++) {
+            imgObjs[i].onmouseover = function () {
+                imgEventHandler(i, imgObjs);
+            }
+
+            imgObjs[i].onmouseout = function () {
+                for (let k = 0; k < imgObjs.length; k++) {
+                    imgObjs[k].src = "./images/empty.png";
+                    spans[k].style.display = "none";
+                }
+            }
+        }
+
+        function imgEventHandler(index, imgObjs) {
+
+            for (let j = 0; j <= index; j++) {
+                imgObjs[j].src = "./images/shining.png";
+                if (j === index) {
+                    spans[j].style.display = "block";
+                }
+            }
+            for (let m = index + 1; m < imgObjs.length; m++) {
+                imgObjs[m].src = "./images/empty.png";
+            }
+        }
+    </script>
+</body>
+
+</html>

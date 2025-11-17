@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var regEx = /-{0,1}[0-9]{1,}/g;
+        var str = "214asf12asf12fasgasr124asf124asfasf124asf11";
+
+        function matchString(str, regEx) {
+            var result = str.match(regEx);
+            return {
+                matchesCount: result.length,
+                matches: result
+            }
+        }
+        console.log(matchString(str, regEx));
+    </script>
+</body>
+
+</html>

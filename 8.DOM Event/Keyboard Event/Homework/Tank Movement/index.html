@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #tankContainer {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-image: url("imgs/tankU.gif");
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tankContainer">
+
+    </div>
+
+    <script>
+        var tankSprites = {
+            up: "imgs/tankU.gif",
+            down: "imgs/tankD.gif",
+            left: "imgs/tankL.gif",
+            right: "imgs/tankR.gif"
+        }
+
+        var tankContainer = document.getElementById("tankContainer");
+        document.onkeydown = function (e) {
+            var tankStyle = getComputedStyle(tankContainer),
+                top = parseFloat(tankStyle.top),
+                left = parseFloat(tankStyle.left);
+            
+            var speed = 5;
+            
+            if (e.key === "ArrowUp") {
+                if (e.shiftKey) {
+                    speed = 10;
+                }
+                top -= speed;
+                if (top < 0) {
+                    top = 0;
+                }
+                tankContainer.style.backgroundImage = `url(${tankSprites.up})`
+                tankContainer.style.top = top + "px";
+            }
+
+            if (e.key === "ArrowDown") {
+                if (e.shiftKey) {
+                    speed = 10;
+                }
+                top += speed;
+                tankContainer.style.backgroundImage = `url(${tankSprites.down})`
+                tankContainer.style.top = top + "px";
+            }
+
+            if (e.key === "ArrowLeft") {
+                if (e.shiftKey) {
+                    speed = 10;
+                }
+                left -= speed;
+                if (left < 0) {
+                    left = 0;
+                }
+                tankContainer.style.backgroundImage = `url(${tankSprites.left})`
+                tankContainer.style.left = left + "px";
+            }
+
+            if (e.key === "ArrowRight") {
+                if (e.shiftKey) {
+                    speed = 10;
+                }
+                left += speed;
+                tankContainer.style.backgroundImage = `url(${tankSprites.right})`
+                tankContainer.style.left = left + "px";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .move {
+            position: fixed;
+            left: 100px;
+            top: 100px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="move">
+        <!-- 该div自动向右下移动，遇到边界反弹 -->
+    </div>
+    <script>
+        var moveDiv = document.getElementsByClassName("move")[0];
+
+        var moveObj = {
+            width: 100,
+            height: 100,
+            left: 100,
+            top: 100,
+            leftSpeed: 2,
+            topSpeed: 2
+        }
+
+        setInterval(function () {
+            moveX();
+            moveY();
+        }, 10);
+
+        function moveX() {
+            moveObj.left += moveObj.leftSpeed;
+            // if move object goes too far right
+            if (moveObj.left + moveObj.width >= document.documentElement.clientWidth) {
+                moveObj.leftSpeed = -2;
+            }
+            // if move object goes too far left
+            if (moveObj.left < 0) {
+                moveObj.leftSpeed = 2;
+            }
+            moveDiv.style.left = moveObj.left + "px";
+        }
+
+        function moveY() {
+            moveObj.top += moveObj.topSpeed;
+            // if move object goes too far up
+            if (moveObj.top < 0) {
+                moveObj.topSpeed = 2;
+            }
+            // if move object goes too far down
+            if (moveObj.top + moveObj.height >= document.documentElement.clientHeight) {
+                moveObj.topSpeed = -2;
+            }
+            moveDiv.style.top = moveObj.top + "px";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../Common/myFunctions.js"></script>
+    <script>
+        var year = +prompt("Enter a year");
+        if (isNaN(year) || year < 0) {
+            console.log("Input incorrect");
+        } else {
+            console.log(`Year: ${year}`);
+            for (var i = 1; i <= 12; i++) {
+                var days = getDays(year, i);
+                console.log(`Month ${i}: ${days} days`);
+            }
+        }
+    </script>
+</body>
+
+</html>

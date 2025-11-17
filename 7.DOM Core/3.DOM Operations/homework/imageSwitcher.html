@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .banner {
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .banner img {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            border: 1px solid;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <img id="husky" src="img/1.jpg" alt="">
+        <p>
+            <button id="pre">Previous</button>
+            <button id="next">Next</button>
+        </p>
+    </div>
+
+    <script>
+        var preBtn = document.getElementById("pre");
+        var nextBtn = document.getElementById("next");
+        var huskyImg = document.getElementById("husky");
+        var currHuskyImg = 1;
+        preBtn.onclick = function () {
+            currHuskyImg--;
+            if (currHuskyImg === 0) {
+                currHuskyImg = 5;
+            }
+            huskyImg.setAttribute("src", `img/${currHuskyImg}.jpg`);
+        }
+
+        nextBtn.onclick = function () {
+            currHuskyImg++;
+            if (currHuskyImg === 6) {
+                currHuskyImg = 1;
+            }
+            huskyImg.setAttribute("src", `img/${currHuskyImg}.jpg`);
+        }
+    </script>
+</body>
+
+</html>

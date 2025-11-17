@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var rows = 5;
+        var temp = 1;
+        for (var i = 1; i <= rows; i++) {
+            var currentRow = "";
+            // space + currentRowNum = rows
+            for (var j = rows - i; j >= 1; j--) {
+                currentRow += " ";
+            }
+
+            for (var m = 1; m<= temp; m++){
+                currentRow += "*";
+            }
+            temp += 2;
+            console.log(currentRow);
+        }
+    </script>
+</body>
+
+</html>

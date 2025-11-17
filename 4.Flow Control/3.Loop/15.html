@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log("Game Start");
+        var roundNum = 1,
+            userScore = 0,
+            systemScore = 0;
+
+        while (1) {
+            var userChoice = prompt("Enter rock, paper or scissors");
+            if (userChoice === null) {
+                break;
+            } else if (userChoice !== "rock" && userChoice !== "paper" && userChoice !== "scissors") {
+                console.log("Invalid Input");
+                break;
+            } else {
+                console.log(`==================Round ${roundNum}======================`);
+                console.log(`System: ${systemScore}, User: ${userScore}`);
+
+                var rad = Math.random(),
+                    systemChoice;
+
+                if (rad <= 0.33333) {
+                    systemChoice = "rock";
+                } else if (rad <= 0.66666) {
+                    systemChoice = "paper";
+                } else {
+                    systemChoice = "scissors";
+                }
+
+                console.log(`Your Choice: ${userChoice}`);
+                console.log(`System Choice: ${systemChoice}`);
+                
+                if (userChoice === "rock" && systemChoice === "scissors" || 
+                    userChoice === "paper" && systemChoice === "rock" ||
+                    userChoice === "scissors" && systemChoice === "paper") {
+                    
+                    userScore++;
+                    console.log("You Win!");
+                } else if (systemChoice === "rock" && userChoice === "scissors" || 
+                    systemChoice === "paper" && userChoice === "rock" ||
+                    systemChoice === "scissors" && userChoice === "paper") {
+                    
+                    systemScore++;
+                    console.log("You Lose!");
+                } else {
+                    console.log("Tie!");
+                }
+            }
+            roundNum++;
+        }
+        console.log("================Game Finished===============");
+        console.log(`System: ${systemScore}, User: ${userScore}`);
+    </script>
+</body>
+
+</html>

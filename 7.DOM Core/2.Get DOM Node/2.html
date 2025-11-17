@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container" id="789">
+        <ul id="456">
+            <li><a href="">Lorem ipsum dolor sit.</a></li>
+            <li><a href="">Laboriosam esse voluptatibus accusamus!</a></li>
+            <li><a href="">Minima cumque alias numquam!</a></li>
+            <li><a href="">Beatae sit quod earum?</a></li>
+            <li><a href="">Doloremque vitae totam pariatur.</a></li>
+            <li id="123"><a href="">Autem ab iusto quae.</a></li>
+            <li><a href="">Mollitia accusamus iure maxime.</a></li>
+            <li><a href="">Sapiente vitae nostrum ex?</a></li>
+            <li><a href="">Aut quos est amet!</a></li>
+            <li><a href="">Laudantium dicta fuga debitis.</a></li>
+        </ul>
+    </div>
+
+    <div class="container2">
+        <span>asdfasfd</span>
+        <strong>asdfasdfgasdfa</strong>
+        <i>asadfasfas</i>
+        <p>aasdfdasf</p>
+        <header class="c3">
+            <p id="test">dfgasdfasfaf</p>
+        </header>
+    </div>
+
+    <script>
+        //Write a function that takes a DOM object as input and returns the first <div> container of that object.
+        
+        // console.log(document.getElementsByClassName("container")[0].nodeName);
+        
+        function getFirstDIV(domObj) {
+            var currElement = domObj;
+            while (currElement.parentElement) {
+                if (currElement.parentElement.nodeName === "DIV"){
+                    return currElement.parentElement;
+                }
+                currElement = currElement.parentElement;
+            }
+            return null;
+        }
+
+        console.log(getFirstDIV(document.getElementById("789")));
+        
+    </script>
+</body>
+
+</html>

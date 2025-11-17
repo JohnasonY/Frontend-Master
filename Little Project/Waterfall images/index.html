@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .imgContainer{
+            border: 2px solid;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="imgContainer">
+
+    </div>
+    <script src="../../plugins/helpers.js"></script>
+    <script src="../../plugins/waterfall.js"></script>
+    <script>
+        var imgs = [];
+        for (var i = 0; i <= 40; i++) {
+            imgs.push(`img/${i}.jpg`);
+        }
+
+        myPlugin.createWaterFall({
+            container: document.querySelector(".imgContainer"),
+            imgsSrc: imgs,
+            minHorGap: 10,
+            vertGap: 15,
+            imgWidth: 220,
+        });
+    </script>
+</body>
+
+</html>

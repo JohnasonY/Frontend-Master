@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../plugins/helpers.js"></script>
+    <script>
+        var handle = myPlugin.debounce(function (value) {
+            console.log(value);
+        }, 1000)
+        window.onresize = function () {
+            handle(document.documentElement.clientWidth);
+        }
+    </script>
+</body>
+
+</html>

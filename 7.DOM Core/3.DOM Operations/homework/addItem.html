@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        p {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>Can not add empty item</p>
+        <div class="input">
+            <input type="text">
+            <button id="add">add</button>
+        </div>
+        <ul class="list">
+            <li>Project 1</li>
+            <li>Project 2</li>
+        </ul>
+    </div>
+
+    <script>
+        var list = document.querySelector(".container .list");
+        var add = document.getElementById("add");
+        add.onclick = function () {
+            var newItem = document.querySelector(".container [type=\"text\"]").value;
+            if (!newItem) {
+                alert("Can not add empty item!");
+                return;
+            }
+            var newLi = document.createElement("li");
+            newLi.innerHTML = newItem;
+            list.appendChild(newLi);
+        }
+    </script>
+</body>
+
+</html>

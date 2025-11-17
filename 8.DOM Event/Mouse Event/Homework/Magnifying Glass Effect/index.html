@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #smallDiv {
+            width: 350px;
+            height: 350px;
+            border: 1px solid #cccc;
+            float: left;
+            position: relative;
+            background-clip: padding-box;
+        }
+
+        #bigDiv {
+            width: 540px;
+            height: 540px;
+            border: 1px solid #cccc;
+            float: left;
+            margin-left: 30px;
+            display: none;
+            background-clip: padding-box;
+        }
+
+        #moveDiv {
+            border: 1px solid #cccc;
+            background-color: rgba(250, 250, 200, 0.3);
+            display: none;
+            cursor: move;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="smallDiv">
+        <div id="moveDiv">
+
+        </div>
+    </div>
+
+    <div id="bigDiv">
+
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

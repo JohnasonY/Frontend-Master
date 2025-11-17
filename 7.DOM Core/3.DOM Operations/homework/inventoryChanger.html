@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span {
+            min-width: 50px;
+            display: inline-block;
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        库存的最小值为0
+    </p>
+    <div class="btnChangeInventory">
+        库存：
+        <button data-plus="-1000">-1000</button>
+        <button data-plus="-100">-100</button>
+        <button data-plus="-10">-10</button>
+        <button data-plus="-1">-</button>
+        <span id="currInventory">1</span>
+        <button data-plus="1">+</button>
+        <button data-plus="10">+10</button>
+        <button data-plus="100">+100</button>
+        <button data-plus="1000">+1000</button>
+    </div>
+
+    <script>
+        var currInventoryElm = document.getElementById("currInventory"),
+            currInveNum = +(currInventoryElm.innerHTML),
+            btns = document.querySelectorAll(".btnChangeInventory button");
+
+        function regChangeInvenEvent(btn) {
+            btn.onclick = function () {
+                currInveNum += parseInt(btn.dataset.plus);
+                if (currInveNum < 0) {
+                    currInveNum = 0;
+                }
+                currInventoryElm.innerHTML = currInveNum;
+            }
+        }
+
+        for (var i = 0; i < btns.length; i++) {
+            regChangeInvenEvent(btns[i]);
+        }
+    </script>
+</body>
+
+</html>

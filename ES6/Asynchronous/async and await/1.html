@@ -1,0 +1,22 @@
+<ul id="heroList"></ul>
+
+<script>
+  /**
+   * get all heroes data
+   */
+  async function getHeroes() {
+    return fetch("https://study.duyiedu.com/api/herolist")
+      .then((resp) => resp.json())
+      .then((resp) => resp.data);
+  }
+  // use getHeroes method，get all heroes data，put all heroes' name into the list
+  (async () => {
+    // get all heroes name
+    const data = await getHeroes();
+    // each hero map to a list item
+    const result = data.map((hero) => `<li>${hero.cname}</li>`).join("");
+    // append result to the list
+    const heroList = document.getElementById("heroList");
+    heroList.innerHTML = result;
+  })();
+</script>
