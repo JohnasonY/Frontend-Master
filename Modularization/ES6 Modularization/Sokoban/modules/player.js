@@ -1,5 +1,4 @@
 import * as map from "./map.js";
-import { renderItems } from "./ui.js";
 
 let playerRow, playerCol; // player's current row and column index
 
@@ -48,46 +47,88 @@ function getNextInfo(currentInfo, direction) {
   return nextInfo;
 }
 
-function swapPlayerAndNext(playerInfo, direction) {
-  let temp = map.mapArr[playerInfo.row][playerInfo.col];
+/**
+ * swap current's label and next label in the map array
+ * @param {object} currentInfo {row: xxx, col: xxx}
+ * @param {string} direction next label in the direction to be swapped: up || down || left || right
+ */
+function swapCurrentAndNext(currentInfo, direction) {
+  let temp = map.mapArr[currentInfo.row][currentInfo.col];
   if (direction === "up") {
-    map.mapArr[playerInfo.row][playerInfo.col] =
-      map.mapArr[playerInfo.row - 1][playerInfo.col];
-    map.mapArr[playerInfo.row - 1][playerInfo.col] = temp;
+    map.mapArr[currentInfo.row][currentInfo.col] =
+      map.mapArr[currentInfo.row - 1][currentInfo.col];
+    map.mapArr[currentInfo.row - 1][currentInfo.col] = temp;
   } else if (direction === "down") {
-    map.mapArr[playerInfo.row][playerInfo.col] =
-      map.mapArr[playerInfo.row + 1][playerInfo.col];
-    map.mapArr[playerInfo.row + 1][playerInfo.col] = temp;
+    map.mapArr[currentInfo.row][currentInfo.col] =
+      map.mapArr[currentInfo.row + 1][currentInfo.col];
+    map.mapArr[currentInfo.row + 1][currentInfo.col] = temp;
   } else if (direction === "left") {
-    map.mapArr[playerInfo.row][playerInfo.col] =
-      map.mapArr[playerInfo.row][playerInfo.col - 1];
-    map.mapArr[playerInfo.row][playerInfo.col - 1] = temp;
+    map.mapArr[currentInfo.row][currentInfo.col] =
+      map.mapArr[currentInfo.row][currentInfo.col - 1];
+    map.mapArr[currentInfo.row][currentInfo.col - 1] = temp;
   } else {
     // swap with right
-    map.mapArr[playerInfo.row][playerInfo.col] =
-      map.mapArr[playerInfo.row][playerInfo.col + 1];
-    map.mapArr[playerInfo.row][playerInfo.col + 1] = temp;
+    map.mapArr[currentInfo.row][currentInfo.col] =
+      map.mapArr[currentInfo.row][currentInfo.col + 1];
+    map.mapArr[currentInfo.row][currentInfo.col + 1] = temp;
   }
+}
+
+/**
+ * determine if player wins
+ * @returns {boolean} true if player wins, false otherwise
+ */
+function isWin() {
+  // return true only if all correction locations have boxes
+  for (let i = 0; i < map.correctPosition.length; i++) {
+    let correctLocation = map.correctPosition[i];
+    if (map.mapArr[correctLocation.row][correctLocation.col] !== map.BOX) {
+      return false;
+    }
+  }
+  return true;
 }
 
 /**
  * Move player based on the given direction
  * Only modify the map array
  * @param {string} direction up || down || left || right
+ * @returns {boolean} return true if player move successfully
  */
 function playerMove(direction) {
   // Player's current location
   let playerInfo = { row: playerRow, col: playerCol };
-  let playerNext = getNextInfo(playerInfo, direction);
+  let playerNext = getNextInfo(playerInfo, direction); //{row: xxx, col: xxx, label: xxx}
   if (playerNext.label === map.WALL) {
-    return;
+    // next is wall
+    return false;
   } else if (playerNext.label === map.SPACE) {
-    swapPlayerAndNext(playerInfo, direction);
+    // next is space
+    swapCurrentAndNext(playerInfo, direction);
+    // update player's location
     playerRow = playerNext.row;
     playerCol = playerNext.col;
+    return true;
+  } else if (playerNext.label === map.BOX) {
+    // next is box
+    // get playerNext's next
+    let playerNextNext = getNextInfo(
+      { row: playerNext.row, col: playerNext.col },
+      direction
+    );
+    if (playerNextNext.label === map.SPACE) {
+      // next next is space, can move
+      // swap box(next) and space(next next)
+      swapCurrentAndNext(playerNext, direction);
+      // swap box(next) and player
+      swapCurrentAndNext(playerInfo, direction);
+      // update player's location
+      playerRow = playerNext.row;
+      playerCol = playerNext.col;
+      return true;
+    }
+    return false;
   }
-
-  renderItems();
 }
 
-export { playerMove };
+export { playerMove, isWin };
