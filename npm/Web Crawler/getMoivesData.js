@@ -35,6 +35,8 @@ function getOneMoive($, movieDiv) {
     .find("div.article_movie_title H2 span.subtle.start-year")
     .text();
   year = year.replace(/[()]/g, ""); // remove ()
+  // get image source
+  let imgSrc = movieDiv.find("img.article_poster").attr("src");
   // get movie rating in percentage
   let rate = movieDiv
     .find("div.article_movie_title H2 span.tMeterScore")
@@ -54,6 +56,7 @@ function getOneMoive($, movieDiv) {
   return {
     name,
     year,
+    imgSrc,
     rate,
     criticsConsensus,
     starring,
