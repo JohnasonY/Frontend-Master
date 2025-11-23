@@ -1,0 +1,24 @@
+{
+  "name": "web-crawler",
+  "version": "1.0.0",
+  "description": "practice web crawler",
+  "homepage": "https://github.com/JohnasonY/Frontend-Master#readme",
+  "bugs": {
+    "url": "https://github.com/JohnasonY/Frontend-Master/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohnasonY/Frontend-Master.git"
+  },
+  "license": "ISC",
+  "author": "Jax <jiaxingrong66@gmail.com>",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^1.13.2",
+    "cheerio": "^1.1.2"
+  }
+}
