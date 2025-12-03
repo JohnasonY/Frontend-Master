@@ -30,9 +30,39 @@ string decimalPart(double num) {
     return decimalPart;
 }
 
+double myCeil(double num) {
+    
+}
+
+void displayMenu() {
+    cout << "Please select your option and press enter:" << endl;
+    cout << "1. fabs" << endl;
+    cout << "2. ceil" << endl;
+    cout << "3. floor" << endl;
+    cout << "4. round" << endl;
+    cout << "5. pow" << endl;
+    cout << "6. quit" << endl;
+}
 
 int main() {
-    cout << intPart(15151251.14) << endl;
-    cout << decimalPart(3.1412512511) << endl;
+    int userChoice;
+    int num;
+    do {
+        displayMenu();
+        cin >> userChoice;
+        switch (userChoice){
+        case 1: // fabs
+            cout << "Enter a number: ";
+            cin >> num;
+            cout << "The absolute value of " << num << " = " << fabs(num) << endl;
+            break;
+        case 2: // ceil
+            cout << "Enter a number: ";
+            cin >> num;
+            cout << "The ceiling of " << num << " = " << myCeil(num) << endl;
+        default:
+            break;
+        }
+    } while (userChoice != 6);
     return 0;
 }
