@@ -88,7 +88,7 @@ class LinkedList {
   /**
    * delete the first node with the given data
    * @param {*} data
-   * @returns {*} return deleted node's data or undefined if not found the node
+   * @returns {*} return deleted node's data or undefined if the node not found
    */
   delete(data) {
     let current = this.head;
