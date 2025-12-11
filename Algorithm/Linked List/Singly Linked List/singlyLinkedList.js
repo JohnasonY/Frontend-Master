@@ -13,6 +13,14 @@ class LinkedList {
   }
 
   /**
+   * get the length of the linked list
+   * @returns {number} the length of the linked list
+   */
+  length() {
+    return this.size;
+  }
+
+  /**
    * print out all nodes' data on the linked list
    */
   print() {
@@ -159,6 +167,81 @@ class LinkedList {
     // decrement size
     this.size--;
     return nodeData;
+  }
+
+  /**
+   * reverse the linked list
+   */
+  reverse() {
+    if (!this.head) {
+      // empty linked list
+      return;
+    }
+    let current = this.head; //current node
+    let previous = null; //previous node
+    let next = null; //next node
+
+    while (current !== null) {
+      // reverse operation
+      next = current.next; //current's next node
+      current.next = previous; //currrent points to prvious
+      previous = current; //update previous
+      current = next; //update current
+    }
+
+    // reset head node
+    this.head = previous;
+  }
+
+  /**
+   * swap two given nodes in the linked list
+   * @param {*} index1 index of the first node
+   * @param {*} index2 index of the second node
+   * @returns return true if swap occurs, false otherwise
+   */
+  swap(index1, index2) {
+    if (index1 === index2) {
+      return false;
+    }
+    // index security check
+    if (
+      typeof index1 !== "number" ||
+      typeof index2 !== "number" ||
+      index1 < 0 ||
+      index2 < 0 ||
+      index1 >= this.size ||
+      index2 >= this.size
+    ) {
+      throw new Error("Invalid index");
+    }
+
+    let current = this.head;
+    let count = 0;
+    let node1 = null, //store node of index1
+      node2 = null; //store node of index2
+
+    while (current !== null) {
+      if (count === index1) {
+        node1 = current;
+      } else if (count === index2) {
+        node2 = current;
+      }
+      if (node1 && node2) {
+        //found two nodes
+        break;
+      }
+      current = current.next;
+      count++;
+    }
+
+    if (node1 && node2) {
+      // swap two nodes' data
+      let temp = node1.data;
+      node1.data = node2.data;
+      node2.data = temp;
+      return true;
+    }
+    return false;
   }
 }
 
