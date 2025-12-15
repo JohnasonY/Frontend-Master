@@ -1,18 +1,17 @@
 #include <iostream>
 using namespace std;
 
-void CUNY(int &CSI)
+void reverseToNewArray(int original[], int size, int reversed[])
 {
-    CSI = 10;
+    int j = 0;
+    for (int i = size - 1; i >= 0; i--)
+    {
+        reversed[j] = original[i];
+        j++;
+    }
 }
 
 int main()
 {
-    int arr[3] = {1, 1, 1};
-    for (int i = 0; i < 3; i++)
-    {
-        arr[i]++;
-    }
-    cout << arr[0];
     return 0;
 }
