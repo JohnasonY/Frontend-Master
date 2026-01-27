@@ -1,0 +1,17 @@
+{
+  "name": "filelistplugin",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack",
+    "build": "webpack --env prod=true"
+  },
+  "devDependencies": {
+    "webpack": "^5.104.1",
+    "webpack-cli": "^6.0.1"
+  }
+}
