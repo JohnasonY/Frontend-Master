@@ -174,6 +174,64 @@ class DoublyLinkedList {
     }
     this.size--;
   }
+
+  /**
+   * reverse the doubly linked list
+   */
+  reverse() {
+    if (!this.head && !this.tail) {
+      // empty linked list
+      return;
+    }
+    // not empty
+    // for each node, next become prev, prev become next
+    let current = this.head;
+    while (current) {
+      let temp = current.next;
+      current.next = current.prev;
+      current.prev = temp;
+      current = temp;
+    }
+    // swap head and tail
+    let tempHead = this.head;
+    this.head = this.tail;
+    this.tail = tempHead;
+  }
+
+  /**
+   * swap two nodes in the linked list
+   * @param {*} index1 
+   * @param {*} index2
+   * @returns true if swap success
+   */
+  swap(index1, index2) {
+
+  }
+
+  /**
+   * check if the linked list is empty
+   * @returns true if the linked list is empty
+   */
+  isEmpty() {
+
+  }
+
+  /**
+   * allows user pass a callback function that can do something for each node
+   * @param {*} fn 
+   */
+  forEach(fn) {
+
+  }
+
+  /**
+   * find the index of the given node's data in the linked list
+   * @param {*} data 
+   * @returns {number} -1 if not found, else 0~size-1
+   */
+  findIndex(data) {
+    
+  }
 }
 
 module.exports = {

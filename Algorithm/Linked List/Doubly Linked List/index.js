@@ -14,7 +14,8 @@ dll.print();
 console.log(dll.size);
 dll.insertBefore(1, -1.5);
 dll.print();
-console.log(dll.size);
 
-dll.removeAt(3);
+dll.reverse();
+dll.print();
+dll.reverse();
 dll.print();
