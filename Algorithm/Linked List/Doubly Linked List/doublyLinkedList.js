@@ -200,38 +200,72 @@ class DoublyLinkedList {
 
   /**
    * swap two nodes in the linked list
-   * @param {*} index1 
+   * @param {*} index1
    * @param {*} index2
    * @returns true if swap success
    */
   swap(index1, index2) {
-
+    // security check
+    if (
+      index1 < 0 ||
+      index2 < 0 ||
+      index1 >= this.size ||
+      index2 >= this.size
+    ) {
+      throw new Error("Invalid index");
+    }
+    if (index1 > index2) {
+      throw new Error("index1 must be less than index2");
+    }
+    // special case
+    if (index1 === index2) {
+      // same node
+      return;
+    }
+    // make temp1 and temp2 node, traverse the linked list until we find both nodes of index1 and index2, assign them to temp1 and temp2
+    // then swap the value of two nodes
+    let temp1 = null,
+      temp2 = null;
+    let current = this.head,
+      curIndex = 0;
+    while (!temp1 || !temp2) {
+      // either temp1 not found or temp2 not found
+      // keep traversing the linked list
+      if (curIndex === index1) {
+        temp1 = current;
+      }
+      if (curIndex === index2) {
+        temp2 = current;
+      }
+      // update the current
+      current = current.next;
+      curIndex++;
+    }
+    // found nodes of index1 and index2
+    // swap the temp1 and temp2 values
+    let tempValue = temp1.data;
+    temp1.data = temp2.data;
+    temp2.data = tempValue;
   }
 
   /**
    * check if the linked list is empty
    * @returns true if the linked list is empty
    */
-  isEmpty() {
-
-  }
+  isEmpty() {}
 
   /**
    * allows user pass a callback function that can do something for each node
-   * @param {*} fn 
+   * @param {*} fn
    */
-  forEach(fn) {
-
-  }
+  forEach(fn) {}
 
   /**
    * find the index of the given node's data in the linked list
-   * @param {*} data 
+   * @param {*} data
    * @returns {number} -1 if not found, else 0~size-1
    */
-  findIndex(data) {
-    
-  }
+  findIndex(data) {}
 }
 
 module.exports = {
