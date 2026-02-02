@@ -252,13 +252,22 @@ class DoublyLinkedList {
    * check if the linked list is empty
    * @returns true if the linked list is empty
    */
-  isEmpty() {}
+  isEmpty() {
+    return this.size === 0;
+  }
 
   /**
    * allows user pass a callback function that can do something for each node
    * @param {*} fn
    */
-  forEach(fn) {}
+  forEach(fn) {
+    // loop over each node in the linked list, pass the current node to the callback function
+    let current = this.head;
+    while (current) {
+      
+    }
+
+  }
 
   /**
    * find the index of the given node's data in the linked list

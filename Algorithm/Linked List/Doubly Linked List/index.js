@@ -13,9 +13,6 @@ dll.insertBefore(2, 100);
 dll.print();
 console.log(dll.size);
 dll.insertBefore(1, -1.5);
-dll.print();
+dll.print(); // -2 -1.5 -1 100
 
-dll.reverse();
-dll.print();
-dll.reverse();
-dll.print();
+console.log(dll.isEmpty());
