@@ -16,3 +16,12 @@ dll.insertBefore(1, -1.5);
 dll.print(); // -2 -1.5 -1 100
 
 console.log(dll.isEmpty());
+
+/*
+dll.forEach((curNode) => {
+  console.log(curNode.data);
+});
+*/
+
+const dataIndex = dll.findIndex(1.1);
+console.log(dataIndex);

@@ -264,9 +264,9 @@ class DoublyLinkedList {
     // loop over each node in the linked list, pass the current node to the callback function
     let current = this.head;
     while (current) {
-      
+      fn(current);
+      current = current.next;
     }
-
   }
 
   /**
@@ -274,7 +274,19 @@ class DoublyLinkedList {
    * @param {*} data
    * @returns {number} -1 if not found, else 0~size-1
    */
-  findIndex(data) {}
+  findIndex(data) {
+    let curIndex = -1,
+      curNode = this.head;
+    while (curNode) {
+      curIndex++;
+      if (curNode.data === data) {
+        return curIndex;
+      }
+      curNode = curNode.next;
+    }
+    // not found
+    return -1;
+  }
 }
 
 module.exports = {
