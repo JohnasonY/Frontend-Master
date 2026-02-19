@@ -245,6 +245,31 @@ int main()
          << "The length of the list is: " << L.Length();
     L.Delete(1, z);
     L.Output();
+
+    // test extend function
+    cout << endl;
+    Chain<int> C1;
+    Chain<int> C2;
+    C1.Insert(1, 1).Insert(2, 2);
+    C2.Insert(1, 3).Insert(2, 4);
+    cout << "C1: ";
+    C1.Output();
+    cout << endl;
+    cout << "C2: ";
+    C2.Output();
+    C1.Extend(C2);
+    cout << endl;
+    cout << "C1 extend C2";
+    C1.Output();
+    // modify C2
+    C2.Insert(3, 5);
+    cout << endl;
+    cout << "C2 after insert 5 in the end: ";
+    C2.Output();
+    cout << endl;
+    cout << "C1 after modify C2: ";
+    C1.Output();
+
   }
   catch (NoMem)
   {
