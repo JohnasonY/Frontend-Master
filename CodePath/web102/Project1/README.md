@@ -120,3 +120,7 @@ src/
 - `StoreGrid` maps the store data into a responsive grid.
 - `StoreCard` displays one store and its website link.
 - `Footer` displays the site footer.
+
+## Demo
+
+<img src='./public/demo/demo.gif' title='Demo' width='' alt='Demo' />
