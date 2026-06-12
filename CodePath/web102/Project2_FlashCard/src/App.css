@@ -1,0 +1,13 @@
+.next-button {
+  display: block;
+  margin: 24px auto 0;
+  padding: 10px 24px;
+  border: 1px solid #777;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.next-button:hover {
+  background-color: #dddddd;
+}

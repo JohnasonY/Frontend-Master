@@ -7,7 +7,7 @@ function Header({ cardCount, selectedDifficulty, onDifficultyChange }) {
     <header className="header">
       <h1>Country Flag Master</h1>
       <p className="description">
-        Test your knowledge of flags from around the world.
+        Test your knowledge of flags from around the world
       </p>
       <nav className="difficulty-options" aria-label="Select difficulty">
         {difficulties.map((difficulty) => (
