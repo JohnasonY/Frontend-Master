@@ -43,7 +43,7 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 <!-- Replace the placeholder below with the URL of your walkthrough GIF. -->
-<img src='YOUR_GIF_URL_HERE' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='./public/demo/demo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with **[Add the recording tool used]**.
 
