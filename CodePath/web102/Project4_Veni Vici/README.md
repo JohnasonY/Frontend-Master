@@ -6,6 +6,9 @@ This web app: **lets users discover a random Amiibo, view its series, character,
 
 Time spent: **6** hours spent in total
 
+## API used
+https://amiiboapi.org/
+
 ## Required Features
 
 The following **required** functionality is completed:
