@@ -24,18 +24,13 @@ function generateCardColor(difficulty) {
   };
 }
 
-function FlashCard({ flagImage, country, difficulty }) {
-  const [isFlipped, setIsFlipped] = useState(false);
+function FlashCard({ flagImage, country, difficulty, isFlipped, onFlip }) {
   const [cardColor] = useState(() => generateCardColor(difficulty));
-
-  function handleFlip() {
-    setIsFlipped((current) => !current);
-  }
 
   return (
     <button
       className={`flashcard ${isFlipped ? "is-flipped" : ""}`}
-      onClick={handleFlip}
+      onClick={onFlip}
       aria-label={
         isFlipped
           ? `${country.name}. Show flag`
