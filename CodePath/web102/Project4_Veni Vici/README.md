@@ -45,7 +45,7 @@ Here's a walkthrough of implemented user stories:
 <!-- Replace the placeholder below with the URL of your walkthrough GIF. -->
 <img src='./public/demo/demo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with **[Add the recording tool used]**.
+GIF created with **ScreenToGif**.
 
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
