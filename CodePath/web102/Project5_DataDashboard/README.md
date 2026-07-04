@@ -46,7 +46,7 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 <!-- Replace this placeholder with your recorded GIF URL. -->
-<img src="YOUR_GIF_URL_HERE" title="PokeDashboard Video Walkthrough" width="" alt="Video Walkthrough" />
+<img src="./public/demo/demo.gif" title="PokeDashboard Video Walkthrough" width="" alt="Video Walkthrough" />
 
 GIF created with **[ScreenToGif or another recording tool]**.
 
