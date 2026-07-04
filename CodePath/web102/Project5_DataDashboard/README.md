@@ -2,7 +2,7 @@
 
 Submitted by: **Jiaxing Rong**
 
-This web app: **A Pokémon data dashboard that fetches Pokémon from PokeAPI and allows users to search, filter, and compare Pokémon information.**
+This web app: **A Pokemon data dashboard that fetches Pokemon from PokeAPI and allows users to search, filter, and compare Pokémon information.**
 
 Time spent: **5** hours spent in total
 
@@ -48,7 +48,7 @@ Here's a walkthrough of implemented user stories:
 <!-- Replace this placeholder with your recorded GIF URL. -->
 <img src="./public/demo/demo.gif" title="PokeDashboard Video Walkthrough" width="" alt="Video Walkthrough" />
 
-GIF created with **[ScreenToGif or another recording tool]**.
+GIF created with **[ScreenToGif]**.
 
 ## Notes
 
