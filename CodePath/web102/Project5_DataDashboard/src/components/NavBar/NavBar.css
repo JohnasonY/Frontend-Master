@@ -1,0 +1,24 @@
+.sidebar { position: fixed; inset: 0 auto 0 0; width: 248px; display: flex; flex-direction: column; padding: 32px 20px 24px; border-right: 1px solid; }
+.brand { display: flex; align-items: center; gap: 11px; margin: 0 10px 48px; font: 700 23px 'Space Grotesk'; text-decoration: none; letter-spacing: -.6px; }
+.brand-logo { width: 32px; height: 32px; flex: 0 0 auto; }
+.brand-poke { color: red; }
+.brand-dashboard { color: blue; }
+.sidebar nav p { margin: 0 12px 12px; text-transform: uppercase; font-size: 10px; letter-spacing: 1.8px; font-weight: 700; }
+.sidebar nav button { width: 100%; display: flex; gap: 14px; align-items: center; margin: 5px 0; padding: 13px 14px; border: 0; border-radius: 10px; background: transparent; font-size: 14px; font-weight: 600; text-align: left; cursor: pointer; }
+
+@media (max-width: 900px) {
+  .sidebar { width: 76px; padding: 28px 12px; }
+  .brand { margin: 0 auto 48px; }
+  .brand { font-size: 12px; }
+  .sidebar nav p, .sidebar nav button:not(.active) { display: none; }
+  .sidebar nav button { justify-content: center; padding: 10px 4px; font-size: 10px; }
+}
+
+@media (max-width: 620px) {
+  .sidebar { position: static; width: 100%; height: 68px; flex-direction: row; align-items: center; padding: 12px 18px; border-right: 0; border-bottom: 1px solid; }
+  .brand { margin: 0; }
+  .brand { font-size: 20px; }
+  .sidebar nav { margin-left: auto; }
+  .sidebar nav p, .sidebar nav button:not(.active) { display: none; }
+  .sidebar nav .active { display: flex; }
+}

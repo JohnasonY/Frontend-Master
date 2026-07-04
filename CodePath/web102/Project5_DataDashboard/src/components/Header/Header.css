@@ -1,0 +1,7 @@
+.page-header { max-width: 1400px; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin: 0 auto 34px; }
+h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+h1 { margin: 0; font-size: clamp(31px, 3vw, 46px); line-height: 1.08; letter-spacing: -1.8px; }
+
+@media (max-width: 620px) {
+  .page-header { align-items: flex-start; flex-direction: column; }
+}

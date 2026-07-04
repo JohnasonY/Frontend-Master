@@ -1,0 +1,10 @@
+.pokemon-row { min-height: 73px; padding: 9px 28px; border-top: 1px solid; }
+.pokemon-identity { display: flex; align-items: center; gap: 14px; }
+.sprite-wrap { width: 49px; height: 49px; display: grid; place-items: center; overflow: hidden; border: 1px solid; border-radius: 12px; }
+.sprite-wrap img { width: 48px; height: 48px; object-fit: contain; }
+.pokemon-number { font-size: 8px; font-weight: 700; letter-spacing: 1px; }
+.pokemon-row h3 { margin: 1px 0 0; font-size: 13px; text-transform: capitalize; letter-spacing: -.1px; }
+.type-list { display: flex; gap: 5px; flex-wrap: wrap; }
+.type-chip { padding: 4px 8px; border: 1px solid; border-radius: 20px; font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+.metric { font-size: 10px; }
+.metric strong { font-size: 11px; font-weight: 600; }

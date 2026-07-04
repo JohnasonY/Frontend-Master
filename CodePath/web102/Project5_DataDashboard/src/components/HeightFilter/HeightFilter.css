@@ -1,0 +1,31 @@
+.height-filter {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.height-filter label { display: grid; gap: 4px; }
+.height-filter label span { font-size: 10px; }
+
+.height-filter input {
+  width: 100px;
+  height: 42px;
+  padding: 0 10px;
+  border: 1px solid;
+  border-radius: 10px;
+  background: transparent;
+  font-size: 12px;
+}
+
+.height-filter p {
+  width: 140px;
+  margin: 0 0 7px;
+  font-size: 10px;
+}
+
+@media (max-width: 620px) {
+  .height-filter { align-items: start; flex-wrap: wrap; }
+  .height-filter label { flex: 1; }
+  .height-filter input { width: 100%; }
+  .height-filter p { width: 100%; }
+}
