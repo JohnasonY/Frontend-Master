@@ -1,0 +1,14 @@
+.edit-page .form-actions .primary-button {
+  background: #ffffff;
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.edit-page .form-actions .secondary-button {
+  color: #dc2626;
+}
+
+.under-form-link a {
+  color: #111111;
+  font-weight: 700;
+}

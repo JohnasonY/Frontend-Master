@@ -1,0 +1,28 @@
+:root {
+  color: #111111;
+  background: #111111;
+  font-family: Arial, Helvetica, sans-serif;
+  font-synthesis: none;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
+    url('./assets/background.jpg') center / cover fixed no-repeat;
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input {
+  font-family: inherit;
+}

@@ -1,0 +1,12 @@
+.home-page {
+  padding-top: 24px;
+}
+
+.home-image {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  display: block;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}

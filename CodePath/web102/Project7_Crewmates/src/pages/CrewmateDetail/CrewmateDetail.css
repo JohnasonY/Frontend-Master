@@ -1,0 +1,57 @@
+.detail-hero {
+  align-items: center;
+  border: 3px solid var(--team-color, #d1d5db);
+  border-radius: 8px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  padding: 22px;
+}
+
+.detail-image-wrap {
+  align-items: center;
+  aspect-ratio: 1;
+  background: #f9fafb;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.detail-species-image {
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.detail-list {
+  border: 3px solid var(--team-color, #d1d5db);
+  border-radius: 8px;
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  max-width: 720px;
+  padding: 20px;
+}
+
+.detail-list div {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 10px;
+}
+
+.detail-list div:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+@media (max-width: 640px) {
+  .detail-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-image-wrap {
+    margin: 0 auto;
+    max-width: 240px;
+    width: 100%;
+  }
+}

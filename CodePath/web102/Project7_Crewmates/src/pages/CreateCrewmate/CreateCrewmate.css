@@ -1,0 +1,9 @@
+.create-page {
+  align-items: stretch;
+}
+
+.create-page .form-actions .primary-button {
+  background: #ffffff;
+  border-color: #16a34a;
+  color: #16a34a;
+}
