@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import CommentForm from "@/components/CommentForm";
 import CommentList from "@/components/CommentList";
 import PostCard from "@/components/PostCard";
+import PostForm from "@/components/PostForm";
 import SortSearchBar from "@/components/SortSearchBar";
 
 const samplePosts = [
@@ -32,6 +33,7 @@ const samplePosts = [
 export default function Test() {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("newest");
+  const [postPreview, setPostPreview] = useState(null);
   const [comments, setComments] = useState([
     {
       id: "comment-1",
@@ -83,6 +85,20 @@ export default function Test() {
         {visiblePosts.map((post) => (
           <PostCard key={post.id} post={post} />
         ))}
+      </div>
+
+      <div className="space-y-3 pt-4">
+        <h2 className="text-xl font-semibold tracking-normal">Post form</h2>
+        <PostForm onSubmit={setPostPreview} />
+        {postPreview && (
+          <div className="rounded-md bg-muted p-3 text-sm text-muted-foreground">
+            <p className="font-medium text-foreground">{postPreview.title}</p>
+            {postPreview.content && <p className="mt-1">{postPreview.content}</p>}
+            {postPreview.imageUrl && (
+              <p className="mt-1 break-all">{postPreview.imageUrl}</p>
+            )}
+          </div>
+        )}
       </div>
 
       <div className="space-y-3 pt-4">
