@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 
 import CommentForm from "@/components/CommentForm";
+import CommentList from "@/components/CommentList";
 import PostCard from "@/components/PostCard";
 import SortSearchBar from "@/components/SortSearchBar";
 
@@ -31,7 +32,18 @@ const samplePosts = [
 export default function Test() {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("newest");
-  const [latestComment, setLatestComment] = useState("");
+  const [comments, setComments] = useState([
+    {
+      id: "comment-1",
+      content: "I just started learning crochet. The first scarf is fighting back.",
+      created_at: "2026-07-25T10:30:00.000Z",
+    },
+    {
+      id: "comment-2",
+      content: "Mechanical keyboards, always. I said it would be one build.",
+      created_at: "2026-07-25T12:05:00.000Z",
+    },
+  ]);
 
   const visiblePosts = useMemo(() => {
     const normalizedQuery = searchQuery.trim().toLowerCase();
@@ -75,12 +87,19 @@ export default function Test() {
 
       <div className="space-y-3 pt-4">
         <h2 className="text-xl font-semibold tracking-normal">Comment form</h2>
-        <CommentForm onSubmit={setLatestComment} />
-        {latestComment && (
-          <p className="rounded-md bg-muted p-3 text-sm text-muted-foreground">
-            Last submitted: {latestComment}
-          </p>
-        )}
+        <CommentForm
+          onSubmit={(content) =>
+            setComments((currentComments) => [
+              {
+                id: crypto.randomUUID(),
+                content,
+                created_at: new Date().toISOString(),
+              },
+              ...currentComments,
+            ])
+          }
+        />
+        <CommentList comments={comments} />
       </div>
     </section>
   );
