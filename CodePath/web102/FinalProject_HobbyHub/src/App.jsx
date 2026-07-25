@@ -4,12 +4,10 @@ import HomeFeed from "./pages/HomeFeed";
 import CreatePost from "./pages/CreatePost";
 import PostDetail from "./pages/PostDetail";
 import EditPost from "./pages/EditPost";
-import Test from "./Test";
 
 function App() {
   return (
     <>
-      <Test />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomeFeed />} />
