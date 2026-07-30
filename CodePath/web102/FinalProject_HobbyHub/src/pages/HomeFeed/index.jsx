@@ -80,7 +80,13 @@ export default function HomeFeed() {
           </h1>
         </div>
 
-        <Link to="/create" className={cn(buttonVariants(), "self-start sm:self-auto")}>
+        <Link
+          to="/create"
+          className={cn(
+            buttonVariants({ variant: "secondary" }),
+            "self-start sm:self-auto"
+          )}
+        >
           New Post
         </Link>
       </div>

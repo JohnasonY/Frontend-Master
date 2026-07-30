@@ -1,7 +1,6 @@
 import { HomeIcon, PlusIcon, SparklesIcon } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
-import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navLinkClassName = ({ isActive }) =>
@@ -32,18 +31,7 @@ export default function Navbar() {
             <span className="hidden sm:inline">Feed</span>
           </NavLink>
 
-          <NavLink
-            to="/create"
-            className={({ isActive }) =>
-              cn(
-                buttonVariants({
-                  variant: isActive ? "secondary" : "default",
-                  size: "default",
-                }),
-                "gap-2"
-              )
-            }
-          >
+          <NavLink to="/create" className={navLinkClassName}>
             <PlusIcon className="size-4" aria-hidden="true" />
             <span>New Post</span>
           </NavLink>
