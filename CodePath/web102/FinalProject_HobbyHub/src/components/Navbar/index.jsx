@@ -13,8 +13,8 @@ const randomInkImages = [...inkImages]
   .sort(() => Math.random() - 0.5)
   .map((inkImage) => ({
     ...inkImage,
-    left: `${12 + Math.random() * 70}%`,
-    top: `${8 + Math.random() * 50}%`,
+    left: `${Math.random() * 12}px`,
+    top: `${-22 + Math.random() * 64}px`,
     rotation: `${Math.random() * 50 - 25}deg`,
   }));
 
@@ -49,20 +49,24 @@ export default function Navbar() {
           <span className="truncate">Splatoon Community Hub</span>
         </NavLink>
 
-        <div className="relative hidden h-16 min-w-0 flex-1 overflow-hidden sm:block">
+        <div className="hidden min-w-0 flex-1 justify-center gap-3 md:flex">
           {randomInkImages.map((inkImage) => (
-            <img
+            <span
               key={inkImage.src}
-              src={inkImage.src}
-              alt=""
-              className="pointer-events-none absolute size-11 object-contain"
-              style={{
-                left: inkImage.left,
-                top: inkImage.top,
-                transform: `rotate(${inkImage.rotation})`,
-              }}
+              className="relative h-16 w-16 shrink-0 overflow-visible"
               aria-hidden="true"
-            />
+            >
+              <img
+                src={inkImage.src}
+                alt=""
+                className="pointer-events-none absolute size-11 object-contain"
+                style={{
+                  left: inkImage.left,
+                  top: inkImage.top,
+                  transform: `rotate(${inkImage.rotation})`,
+                }}
+              />
+            </span>
           ))}
         </div>
 
