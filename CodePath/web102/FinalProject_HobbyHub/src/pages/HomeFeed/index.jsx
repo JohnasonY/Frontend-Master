@@ -1,10 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
-
 import PostCard from "@/components/PostCard";
 import SortSearchBar from "@/components/SortSearchBar";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { getPosts } from "@/services/posts";
 
 export default function HomeFeed() {
@@ -50,11 +46,12 @@ export default function HomeFeed() {
 
     return posts
       .filter((post) =>
-        (post.title ?? "").toLowerCase().includes(normalizedQuery)
+        (post.title ?? "").toLowerCase().includes(normalizedQuery),
       )
       .sort((firstPost, secondPost) => {
         if (sortBy === "upvotes") {
-          const firstUpvotes = firstPost.upvotes ?? firstPost.upvotes_count ?? 0;
+          const firstUpvotes =
+            firstPost.upvotes ?? firstPost.upvotes_count ?? 0;
           const secondUpvotes =
             secondPost.upvotes ?? secondPost.upvotes_count ?? 0;
 
@@ -70,26 +67,9 @@ export default function HomeFeed() {
 
   return (
     <section className="mx-auto max-w-2xl space-y-5">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-        <div className="space-y-1">
-          <p className="text-sm font-medium text-muted-foreground">
-            Community feed
-          </p>
-          <h1 className="text-3xl font-semibold tracking-normal">
-            Discover hobby posts
-          </h1>
-        </div>
-
-        <Link
-          to="/create"
-          className={cn(
-            buttonVariants({ variant: "secondary" }),
-            "self-start sm:self-auto"
-          )}
-        >
-          New Post
-        </Link>
-      </div>
+      <h1 className="text-3xl font-semibold tracking-normal">
+        Discover hobby posts
+      </h1>
 
       <SortSearchBar
         searchQuery={searchQuery}

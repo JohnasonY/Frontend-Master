@@ -10,6 +10,12 @@ const navLinkClassName = ({ isActive }) =>
     isActive && "bg-muted text-foreground"
   );
 
+const newPostLinkClassName = () =>
+  cn(
+    "inline-flex h-9 items-center gap-2 rounded-md px-3 text-sm font-medium transition-colors",
+    "bg-muted text-foreground hover:bg-[color-mix(in_oklch,var(--muted),var(--foreground)_8%)]"
+  );
+
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur supports-backdrop-filter:bg-background/70">
@@ -31,7 +37,7 @@ export default function Navbar() {
             <span className="hidden sm:inline">Feed</span>
           </NavLink>
 
-          <NavLink to="/create" className={navLinkClassName}>
+          <NavLink to="/create" className={newPostLinkClassName}>
             <PlusIcon className="size-4" aria-hidden="true" />
             <span>New Post</span>
           </NavLink>
