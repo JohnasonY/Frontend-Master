@@ -38,14 +38,9 @@ export default function CreatePost() {
           Back to feed
         </Link>
 
-        <div className="space-y-1">
-          <p className="text-sm font-medium text-muted-foreground">
-            New community post
-          </p>
-          <h1 className="text-3xl font-semibold tracking-normal">
-            Create a post
-          </h1>
-        </div>
+        <h1 className="text-3xl font-semibold tracking-normal">
+          Create a Post
+        </h1>
       </div>
 
       {errorMessage && (

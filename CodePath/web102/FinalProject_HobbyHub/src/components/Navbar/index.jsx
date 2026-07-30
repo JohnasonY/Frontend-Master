@@ -1,7 +1,22 @@
-import { HomeIcon, PlusIcon, SparklesIcon } from "lucide-react";
+import { HomeIcon, PlusIcon } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 import { cn } from "@/lib/utils";
+
+const inkImages = [
+  { src: "/images/blueInk.png" },
+  { src: "/images/redInk.png" },
+  { src: "/images/yellowInk.png" },
+];
+
+const randomInkImages = [...inkImages]
+  .sort(() => Math.random() - 0.5)
+  .map((inkImage) => ({
+    ...inkImage,
+    left: `${12 + Math.random() * 70}%`,
+    top: `${8 + Math.random() * 50}%`,
+    rotation: `${Math.random() * 50 - 25}deg`,
+  }));
 
 const navLinkClassName = ({ isActive }) =>
   cn(
@@ -25,11 +40,31 @@ export default function Navbar() {
           className="inline-flex min-w-0 items-center gap-2 text-base font-semibold text-foreground"
           aria-label="HobbyHub home"
         >
-          <span className="flex size-9 shrink-0 items-center justify-center rounded-md bg-primary text-primary-foreground">
-            <SparklesIcon className="size-4" aria-hidden="true" />
-          </span>
-          <span className="truncate">Splatoon Hub</span>
+          <img
+            src="/images/Splatoon_monochrome_logo.svg"
+            alt=""
+            className="h-9 w-auto shrink-0"
+            aria-hidden="true"
+          />
+          <span className="truncate">Splatoon Community Hub</span>
         </NavLink>
+
+        <div className="relative hidden h-16 min-w-0 flex-1 overflow-hidden sm:block">
+          {randomInkImages.map((inkImage) => (
+            <img
+              key={inkImage.src}
+              src={inkImage.src}
+              alt=""
+              className="pointer-events-none absolute size-11 object-contain"
+              style={{
+                left: inkImage.left,
+                top: inkImage.top,
+                transform: `rotate(${inkImage.rotation})`,
+              }}
+              aria-hidden="true"
+            />
+          ))}
+        </div>
 
         <div className="flex shrink-0 items-center gap-1">
           <NavLink to="/" className={navLinkClassName}>

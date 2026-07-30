@@ -68,7 +68,7 @@ export default function HomeFeed() {
   return (
     <section className="mx-auto max-w-2xl space-y-5">
       <h1 className="text-3xl font-semibold tracking-normal">
-        Discover hobby posts
+        Share Anything about Splatoon!
       </h1>
 
       <SortSearchBar
