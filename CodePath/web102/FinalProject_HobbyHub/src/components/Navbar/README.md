@@ -29,7 +29,7 @@ In this project, `Navbar` is already rendered by `Layout`, so most pages should 
 - Brand link goes to `/`.
 - Feed link goes to `/`.
 - New Post link goes to `/create`.
-- The brand text currently displays `Splatoon Hub`.
+- The brand text currently displays `SpltHub`.
 
 ## Notes
 

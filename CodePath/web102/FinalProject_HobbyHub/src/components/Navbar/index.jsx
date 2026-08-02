@@ -38,7 +38,7 @@ export default function Navbar() {
         <NavLink
           to="/"
           className="inline-flex min-w-0 items-center gap-2 text-base font-semibold text-foreground"
-          aria-label="HobbyHub home"
+          aria-label="SpltHub home"
         >
           <img
             src="/images/Splatoon_monochrome_logo.svg"
@@ -46,7 +46,7 @@ export default function Navbar() {
             className="h-9 w-auto shrink-0"
             aria-hidden="true"
           />
-          <span className="truncate">Splatoon Community Hub</span>
+          <span className="truncate">SpltHub</span>
         </NavLink>
 
         <div className="hidden min-w-0 flex-1 justify-center gap-3 md:flex">

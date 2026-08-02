@@ -23,7 +23,7 @@ export default function AppShell() {
 | `children` | `ReactNode` | none | Page content rendered inside the main area. |
 | `className` | `string` | none | Extra classes for the outer page wrapper. |
 | `contentClassName` | `string` | none | Extra classes for the `<main>` element. |
-| `footer` | `string` or `ReactNode` | `"HobbyHub"` | Footer content. Pass `null` or `false` to hide the footer. |
+| `footer` | `string` or `ReactNode` | `"SpltHub"` | Footer content. Pass `null` or `false` to hide the footer. |
 
 ## Notes
 
