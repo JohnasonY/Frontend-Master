@@ -25,11 +25,25 @@ function formatCreatedAt(value) {
   }).format(date);
 }
 
-export default function PostCard({ post, className }) {
+const postBorderColors = [
+  "#9fc5ff",
+  "#aeeeff",
+  "#ffb3df",
+  "#ffe681",
+  "#a9efb9",
+  "#ffc09f",
+];
+
+function getPostBorderColor(colorIndex = 0) {
+  return postBorderColors[colorIndex % postBorderColors.length];
+}
+
+export default function PostCard({ post, colorIndex, className }) {
   const title = post?.title?.trim() || "Untitled post";
   const postUrl = post?.id ? `/posts/${post.id}` : "#";
   const upvotes = Number(post?.upvotes ?? post?.upvotes_count ?? 0);
   const commentCount = Array.isArray(post?.comments) ? post.comments.length : null;
+  const borderColor = getPostBorderColor(colorIndex);
 
   return (
     <Link
@@ -43,6 +57,7 @@ export default function PostCard({ post, className }) {
       <Card
         size="sm"
         className="rounded-md transition-colors group-hover:bg-muted/45 group-focus-visible:bg-muted/45"
+        style={{ border: `2px solid ${borderColor}` }}
       >
         <CardHeader className="gap-3">
           <CardTitle className="line-clamp-2 text-lg leading-snug">

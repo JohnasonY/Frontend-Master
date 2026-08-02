@@ -108,8 +108,8 @@ export default function HomeFeed() {
 
       {!isLoading && !errorMessage && visiblePosts.length > 0 && (
         <div className="space-y-3">
-          {visiblePosts.map((post) => (
-            <PostCard key={post.id} post={post} />
+          {visiblePosts.map((post, index) => (
+            <PostCard key={post.id} post={post} colorIndex={index} />
           ))}
         </div>
       )}
