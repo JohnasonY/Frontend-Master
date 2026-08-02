@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   ArrowLeftIcon,
-  ArrowUpIcon,
   ClockIcon,
   PencilIcon,
   ThumbsUpIcon,
@@ -11,7 +10,6 @@ import {
 
 import CommentForm from "@/components/CommentForm";
 import CommentList from "@/components/CommentList";
-import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Card,
@@ -241,10 +239,6 @@ export default function PostDetail() {
               <ClockIcon className="size-3.5" aria-hidden="true" />
               {formatCreatedAt(post.created_at)}
             </span>
-            <Badge variant="secondary" className="h-7 rounded-md px-2.5">
-              <ArrowUpIcon className="size-3.5" aria-hidden="true" />
-              {upvotes}
-            </Badge>
           </CardDescription>
         </CardHeader>
 
@@ -259,12 +253,13 @@ export default function PostDetail() {
 
           <Button
             type="button"
-            size="icon"
+            size="default"
             onClick={handleUpvote}
             disabled={isUpvoting}
-            aria-label="Upvote post"
+            aria-label={`Upvote post, ${upvotes} ${upvotes === 1 ? "like" : "likes"}`}
           >
             <ThumbsUpIcon className="size-4" aria-hidden="true" />
+            {upvotes}
           </Button>
         </CardContent>
       </Card>
