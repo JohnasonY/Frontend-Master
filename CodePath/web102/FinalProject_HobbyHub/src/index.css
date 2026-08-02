@@ -346,3 +346,54 @@ code {
     @apply font-sans;
     }
 }
+
+@property --new-post-border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.new-post-link {
+  --new-post-border-angle: 0deg;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--muted), var(--muted)) padding-box,
+    conic-gradient(
+      from var(--new-post-border-angle),
+      #1d6cff,
+      #6ddcff,
+      #ff4fb8,
+      #1d6cff
+    )
+      border-box;
+  animation: new-post-border-spin 2.8s linear infinite;
+}
+
+.new-post-link:hover {
+  background:
+    linear-gradient(
+        color-mix(in oklch, var(--muted), var(--foreground) 8%),
+        color-mix(in oklch, var(--muted), var(--foreground) 8%)
+      )
+      padding-box,
+    conic-gradient(
+      from var(--new-post-border-angle),
+      #1d6cff,
+      #6ddcff,
+      #ff4fb8,
+      #1d6cff
+    )
+      border-box;
+}
+
+@keyframes new-post-border-spin {
+  to {
+    --new-post-border-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .new-post-link {
+    animation: none;
+  }
+}

@@ -2,6 +2,13 @@ import { SearchIcon, SlidersHorizontalIcon, XIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 
 const sortOptions = [
@@ -51,27 +58,36 @@ export default function SortSearchBar({
         )}
       </label>
 
-      <label className="relative sm:w-40">
+      <div className="relative sm:w-40">
         <span className="sr-only">Sort posts</span>
         <SlidersHorizontalIcon
           className="pointer-events-none absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
           aria-hidden="true"
         />
-        <select
+        <Select
           value={sortBy}
-          onChange={(event) => onSortChange(event.target.value)}
-          className={cn(
-            "h-9 w-full appearance-none rounded-md border border-input bg-background px-8 py-1 text-sm shadow-xs outline-none transition-[color,box-shadow]",
-            "focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
-          )}
+          onValueChange={(value) => {
+            if (value) {
+              onSortChange(value);
+            }
+          }}
+          items={sortOptions}
         >
-          {sortOptions.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </label>
+          <SelectTrigger
+            aria-label="Sort posts"
+            className="w-full bg-background pl-8"
+          >
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent align="start" alignItemWithTrigger={false}>
+            {sortOptions.map((option) => (
+              <SelectItem key={option.value} value={option.value}>
+                {option.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
     </div>
   );
 }

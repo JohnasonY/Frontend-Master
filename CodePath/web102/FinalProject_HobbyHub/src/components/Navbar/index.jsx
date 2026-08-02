@@ -27,7 +27,7 @@ const navLinkClassName = ({ isActive }) =>
 
 const newPostLinkClassName = () =>
   cn(
-    "inline-flex h-9 items-center gap-2 rounded-md px-3 text-sm font-medium transition-colors",
+    "new-post-link inline-flex h-9 items-center gap-2 rounded-md px-3 text-sm font-medium transition-colors",
     "bg-muted text-foreground hover:bg-[color-mix(in_oklch,var(--muted),var(--foreground)_8%)]"
   );
 
