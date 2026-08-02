@@ -228,7 +228,7 @@ export default function PostDetail() {
           <img
             src={post.image_url}
             alt="Post attachment"
-            className="aspect-video w-full object-cover"
+            className="mx-auto max-h-[32rem] w-auto max-w-full object-contain"
           />
         )}
 
