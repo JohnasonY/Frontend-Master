@@ -1,55 +1,44 @@
-UI Library: shadcn
-https://ui.shadcn.com/
-
-Icon Library: lucide
-https://lucide.dev/
-
 # Web Development Final Project - *SpltHub*
 
 Submitted by: **Jiaxing Rong**
 
-This web app: **insert description**
+SpltHub is a Splatoon-themed community posting app where users can create posts, browse the feed, search and sort posts, comment on discussions, upvote posts, and manage posts they created. The app uses Supabase for persistent post and comment data.
 
-Time spent: **X** hours spent in total
+Time spent: **11** hours spent in total
+
+## Libraries
+
+- UI Library: [shadcn](https://ui.shadcn.com/)
+- Icon Library: [lucide](https://lucide.dev/)
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-
-- [ ] **Web app includes a create form that allows the user to create posts**
+- [x] **Web app includes a create form that allows the user to create posts**
   - Form requires users to add a post title
-  - Forms should have the *option* for users to add: 
-    - additional textual content
-    - an image added as an external image URL
-- [ ] **Web app includes a home feed displaying previously created posts**
-  - Web app must include home feed displaying previously created posts
-  - By default, each post on the posts feed should show only the post's:
-    - creation time
-    - title 
-    - upvotes count
-  - Clicking on a post should direct the user to a new page for the selected post
-- [ ] **Users can view posts in different ways**
-  - Users can sort posts by either:
-    -  creation time
-    -  upvotes count
+  - Form allows optional text content
+  - Form allows an optional external image URL
+- [x] **Web app includes a home feed displaying previously created posts**
+  - Home feed displays previously created posts
+  - Each post preview shows creation time, title, and upvote count
+  - Clicking a post opens that post's detail page
+- [x] **Users can view posts in different ways**
+  - Users can sort posts by creation time or upvote count
   - Users can search for posts by title
-- [ ] **Users can interact with each post in different ways**
-  - The app includes a separate post page for each created post when clicked, where any additional information is shown, including:
-    - content
-    - image
-    - comments
-  - Users can leave comments underneath a post on the post page
-  - Each post includes an upvote button on the post page. 
-    - Each click increases the post's upvotes count by one
-    - Users can upvote any post any number of times
+- [x] **Users can interact with each post in different ways**
+  - Post detail pages show additional content, image, and comments
+  - Users can leave comments underneath a post
+  - Each post includes an upvote button on the post page
+  - Each click increases the post's upvote count by one
+  - Users can upvote any post any number of times
+- [x] **A post that a user previously created can be edited or deleted from its post page**
+  - Users can edit existing posts
+  - Users can delete existing posts
 
-- [ ] **A post that a user previously created can be edited or deleted from its post pages**
-  - After a user creates a new post, they can go back and edit the post
-  - A previously created post can be deleted from its post page
+## Optional Features
 
 The following **optional** features are implemented:
-
 
 - [ ] Web app implements pseudo-authentication
   - Users can only edit and delete posts or delete comments by entering the secret key, which is set by the user during post creation
@@ -67,30 +56,27 @@ The following **optional** features are implemented:
   - Users can upload images directly from their local machine as an image file
 - [ ] Web app displays a loading animation whenever data is being fetched
 
-The following **additional** features are implemented:
+## Additional Features
 
-* [ ] List anything else that you added to improve the site's functionality!
+- [x] Styled search and sort controls with a custom dropdown menu
+- [x] Switch 2 style button animation for New Post
+- [x] Different border colors for posts feed
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='./public/demo/demo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with ScreenToGif
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+GIF created with ScreenToGif.
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+One challenge was balancing image display behavior: images should not be cropped, but they also should not dominate the entire post detail page. The current implementation preserves the full image aspect ratio while applying a maximum display height.
 
 ## License
 
-    Copyright [yyyy] [Jiaxing Rong]
+    Copyright 2026 Jiaxing Rong
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
