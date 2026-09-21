@@ -29,10 +29,10 @@ public:
      */
     Graph(int verticesCount)
     {
-        int vCount = verticesCount;
+        V = verticesCount;
         head = new Edge *[V];
 
-        for (int i = 0; i < vCount; i++)
+        for (int i = 0; i < V; i++)
         {
             head[i] = nullptr;
         }
