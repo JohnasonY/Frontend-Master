@@ -1,0 +1,67 @@
+.discover-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid black;
+  width: 700px;
+  height: 800px;
+  border-radius: 12px;
+}
+
+.discover-container .description {
+  font-size: 23px;
+  margin-top: 0;
+}
+
+.discover-container .discover {
+  height: 50px;
+  width: 120px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  background: rgba(245, 222, 179, 1);
+}
+
+.discover-container .discover:hover {
+  background: rgba(245, 222, 179, 0.5);
+}
+
+.discover-container .header {
+  font-size: 35px;
+}
+
+.discover-container .name {
+  text-align: center;
+  font-size: 25px;
+}
+
+.discover-container .attributes {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.discover-container .attribute {
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: rgba(135, 206, 235, 1);
+}
+
+.discover-container .attribute:hover {
+  background: rgba(135, 206, 235, 0.5);
+}
+
+.discover-container .current-image {
+  display: block;
+  margin: 20px auto;
+  max-width: 250px;
+  max-height: 400px;
+}
+
+.discover-container .current {
+  margin-bottom: 30px;
+}

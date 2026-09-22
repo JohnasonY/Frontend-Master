@@ -1,0 +1,27 @@
+.Guess {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.submit-guess {
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.submit-guess:hover {
+  background-color: #dddddd;
+}
+
+#guess-answer {
+  border-radius: 5px;
+}
+
+.correct {
+  border: 3px solid green;
+}
+
+.wrong {
+  border: 3px solid red;
+}

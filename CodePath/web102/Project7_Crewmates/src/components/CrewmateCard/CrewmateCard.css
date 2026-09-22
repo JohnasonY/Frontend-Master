@@ -1,0 +1,55 @@
+.crewmate-card {
+  border: 3px solid var(--team-color, #d1d5db);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 18px;
+}
+
+.card-link {
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.card-link:hover h2 {
+  text-decoration: underline;
+}
+
+.card-image-wrap {
+  align-items: center;
+  background: #f9fafb;
+  border-radius: 6px;
+  box-sizing: border-box;
+  display: flex;
+  height: 170px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 14px;
+  width: 100%;
+}
+
+.card-species-image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.card-stats {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.card-stats div {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 10px;
+}
+
+.card-stats div:first-child {
+  border-top: 0;
+  padding-top: 0;
+}

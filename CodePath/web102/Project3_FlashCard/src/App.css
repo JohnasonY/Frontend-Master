@@ -1,0 +1,55 @@
+.navigate {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.navigate .button {
+  padding: 10px 24px;
+  border: 1px solid #777;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.navigate .button:hover {
+  background-color: #dddddd;
+}
+
+.shuffle {
+  display: block;
+  margin: 30px auto;
+  padding: 10px 24px;
+  border: 1px solid #777;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.shuffle:hover {
+  background-color: #dddddd;
+}
+
+.shuffle:disabled,
+.mastered-button:disabled,
+.navigate .button:disabled {
+  cursor: not-allowed;
+  background-color: #dddddd;
+}
+
+.empty-cards {
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+#streak {
+  text-align: center;
+  margin: 5px auto;
+  margin-bottom: 20px;
+}

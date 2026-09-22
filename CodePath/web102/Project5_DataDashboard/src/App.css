@@ -1,0 +1,14 @@
+.app-shell { min-height: 100vh; }
+
+.dashboard {
+  margin-left: 248px;
+  padding: 42px clamp(28px, 4vw, 64px) 70px;
+}
+
+@media (max-width: 900px) {
+  .dashboard { margin-left: 76px; padding-inline: 22px; }
+}
+
+@media (max-width: 620px) {
+  .dashboard { margin-left: 0; padding: 30px 16px 50px; }
+}

@@ -1,0 +1,34 @@
+.banList-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 900px;
+  border: 2px solid black;
+  width: 360px;
+  border-radius: 12px;
+}
+
+.banList-container .description {
+  margin-top: 0;
+  font-size: 21px;
+  margin-bottom: 40px;
+}
+
+.banList-container .banned-button {
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: rgba(255, 0, 0, 0.5);
+}
+
+.banList-container .banned-button:hover {
+  background: rgba(255, 0, 0, 0.2);
+}
+
+.banList-container .banned {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
