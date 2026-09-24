@@ -105,6 +105,27 @@ public:
             }
         }
 
+        // print out the distance matrix
+        cout << "Final Distance Matrix: " << endl << endl;
+        cout << "  ";
+        for (int i = 0; i < V; i++) {
+            cout << i << " ";
+        }
+        cout << endl;
+        cout << " "; 
+        for (int i = 0; i < 2*V; i++) {
+            cout << "-";
+        }
+        cout << endl;
+        for (int i = 0; i < V; i++) {
+            cout << i << "|";
+            for (int j = 0; j < V; j++) {
+                cout << dist[i][j] << " ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+
         // Find vertex with smallest total distance
         int centralVertex = -1;
         int minimumSum = INF;
@@ -121,7 +142,7 @@ public:
             double closeness =
                 static_cast<double>(1) / sum;
 
-            cout << "Vertex " << i << ": closeness = " << closeness << endl;
+            cout << "Vertex " << i << ": " << "sum of distance: " << sum <<  ", closeness = " << closeness << endl;
 
             if (sum < minimumSum)
             {
