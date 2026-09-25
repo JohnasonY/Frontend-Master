@@ -95,17 +95,36 @@ public:
             {
                 for (int j = 0; j < V; j++)
                 {
-                    if (dist[i][k] != INF &&
-                        dist[k][j] != INF &&
-                        dist[i][k] + dist[k][j] < dist[i][j])
+                    if (dist[i][k] != INF && dist[k][j] != INF && dist[i][k] + dist[k][j] < dist[i][j])
                     {
                         // |i, k| + |k, j| < |i, j|
-                        dist[i][j] =
-                            dist[i][k] + dist[k][j];
+                        // update the shortest distance between i and j if k is the intermediate vertex
+                        dist[i][j] = dist[i][k] + dist[k][j];
                     }
                 }
             }
         }
+
+        // print out the distance matrix
+        cout << "Final Distance Matrix: " << endl << endl;
+        cout << "  ";
+        for (int i = 0; i < V; i++) {
+            cout << i << " ";
+        }
+        cout << endl;
+        cout << " "; 
+        for (int i = 0; i < 2*V; i++) {
+            cout << "-";
+        }
+        cout << endl;
+        for (int i = 0; i < V; i++) {
+            cout << i << "|";
+            for (int j = 0; j < V; j++) {
+                cout << dist[i][j] << " ";
+            }
+            cout << endl;
+        }
+        cout << endl;
 
         // Find vertex with smallest total distance
         int centralVertex = -1;
@@ -123,10 +142,7 @@ public:
             double closeness =
                 static_cast<double>(1) / sum;
 
-            cout << "Vertex " << i
-                 << ": distance sum = " << sum
-                 << ", closeness = " << closeness
-                 << endl;
+            cout << "Vertex " << i << ": " << "sum of distance: " << sum <<  ", closeness = " << closeness << endl;
 
             if (sum < minimumSum)
             {
@@ -135,8 +151,7 @@ public:
             }
         }
 
-        cout << "\nCloseness centrality vertex: "
-             << centralVertex << endl;
+        cout << "\nCloseness centrality vertex: " << centralVertex << endl;
     }
 };
 

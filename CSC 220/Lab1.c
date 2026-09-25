@@ -16,6 +16,62 @@ int main()
     printf("px: %p \n", px);
     printf("py: %p \n", py);
     printf("*py: %x \n", *py);
-    // getchar();
+    printf("===============================\n");
+    printf("size of x: %zu \n", sizeof(x));
+    printf("size of px: %zu \n", sizeof(px));
+    printf("size of py: %zu \n", sizeof(py));
+    printf("size of *py: %zu \n", sizeof(*py));
+    unsigned char *pc;
+    printf("size of pc: %zu \n", sizeof(pc));
+    int i;
+    // pc points to the starting address of x
+    printf("================================\n");
+    printf("pc points to the starting address of x\n");
+    pc = &x;
+    // printf("pc: %p \n", pc);
+    for (i = 0; i < 4; i++)
+    {
+        printf("pc: %p \n", pc);
+        printf("*pc: %x \n", *pc);
+        pc++;
+    }
+    // pc points to the starting address of *py
+    printf("=================================\n");
+    printf("pc points to the starting address of py\n");
+    pc = py;
+    for (i = 0; i < 4; i++)
+    {
+        printf("pc: %p \n", pc);
+        printf("*pc: %x \n", *pc);
+        pc++;
+    }
+    // pz points to the starting address of z
+    int z, *pz;
+    pz = &z;
+    printf("=================================\n");
+    printf("pz points to the starting address of z\n");
+    printf("pz: %p \n", pz);
+    // pc points to the starting address of px
+    printf("=================================\n");
+    printf("pc points to px (pc = &px)");
+    pc = &px;
+    printf("px: %p \n", px);
+    for (int i = 0; i < 4; i++)
+    {
+        printf("(pc+i): %p \n", pc + i);
+        printf("*(pc+i): %x \n", *(pc + i));
+    }
+    // pc points to where py points to
+    printf("==================================\n");
+    printf("pc points to where py points to (pc = py)");
+    pc = py;
+    for (int i = 0; i < 4; i++)
+    {
+        printf("(pc+i): %p \n", pc + i);
+        printf("*(pc+i): %x \n", *(pc + i));
+    }
+    free(py);
+    py = NULL;
+
     return 0;
 }
