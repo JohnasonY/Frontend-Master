@@ -1,19 +1,27 @@
-#include <iostream>
-using namespace std;
+# CSC 769 Project 1
 
+By Jiaxing Rong
+
+I first created a struct called Node that includes the vertex, weight of the edge and next pointer points to the next Node.  This data structure is prepared for the later linked list representation of the graph.
+
+```cpp
 /**
- * An edge in the graph
+ * An Node in the graph
  * @param vertex the vertex connected by the edge
  * @param weight the weight of the edge
- * @param next pointer points to the next edge
+ * @param next pointer points to the next Node
  */
-struct Edge
+struct Node
 {
     int vertex;
     int weight;
-    Edge *next;
+    Node *next;
 };
+```
 
+Linked list representation of the graph
+
+```cpp
 /**
  * Undirected weighted graph
  */
@@ -21,7 +29,7 @@ class Graph
 {
 private:
     int V;
-    Edge **head;
+    Node **head;
 
 public:
     /**
@@ -30,14 +38,18 @@ public:
     Graph(int verticesCount)
     {
         V = verticesCount;
-        head = new Edge *[V];
+        head = new Node *[V];
 
         for (int i = 0; i < V; i++)
         {
             head[i] = nullptr;
         }
     }
+```
 
+An method of the class Graph is addEdge that add an edge with the given vertex, another vertex and the weight of the edge
+
+```cpp
     /**
      * add an edge in the graph
      * @param u one vertex connected by the edge
@@ -47,14 +59,21 @@ public:
     void addEdge(int u, int v, int weight)
     {
         // add v to u's list
-        Edge *newEdge = new Edge{v, weight, head[u]};
-        head[u] = newEdge;
+        Node *newNode = new Node{v, weight, head[u]};
+        head[u] = newNode;
 
         // add u to v's list
-        newEdge = new Edge{u, weight, head[v]};
-        head[v] = newEdge;
+        newNode = new Node{u, weight, head[v]};
+        head[v] = newNode;
     }
+```
 
+The method findClosenessCentrality. I planed to use Floyd-Warshall to calculate closeness centrality. Therefore, I need to create distance matrix to keep track of the shortest distance between 2 vertexes
+
+```cpp
+    /**
+     * Find closeness centrality in the graph
+     */
     void findClosenessCentrality()
     {
         const int INF = 999999;
@@ -78,7 +97,7 @@ public:
         // Copy adjacency list into distance matrix
         for (int i = 0; i < V; i++)
         {
-            Edge *current = head[i];
+            Node *current = head[i];
 
             while (current != nullptr)
             {
@@ -87,7 +106,11 @@ public:
                 current = current->next;
             }
         }
+```
 
+Floyd-Warshall algorithm
+
+```cpp
         // Floyd-Warshall
         for (int k = 0; k < V; k++)
         {
@@ -105,6 +128,11 @@ public:
             }
         }
 
+```
+
+Print out the final distance matrix
+
+```cpp
         // print out the distance matrix
         cout << "Final Distance Matrix: " << endl << endl;
         cout << "  ";
@@ -126,6 +154,11 @@ public:
         }
         cout << endl;
 
+```
+
+Find closeness centrality with the formula $\frac{1}{sum}$
+
+```cpp
         // Find vertex with smallest total distance
         int centralVertex = -1;
         int minimumSum = INF;
@@ -152,11 +185,13 @@ public:
         }
 
         cout << "\nCloseness centrality vertex: " << centralVertex << endl;
-    }
-};
+```
 
-int main()
-{
+Instantiate the below graph as input ![image-20260925201613004](C:\Users\jiaxi\AppData\Roaming\Typora\typora-user-images\image-20260925201613004.png)
+
+In this case, I treated vertex s as 0 and t as 7
+
+```cpp
     Graph g(8);
     // example input from the project document
     // treat vertex s as 0, vertex t as 7
@@ -173,6 +208,11 @@ int main()
     g.addEdge(5, 6, 4);
     g.addEdge(5, 7, 5);
     g.addEdge(6, 7, 3);
-    g.findClosenessCentrality();
-    return 0;
-}
+	g.findClosenessCentrality();
+```
+
+The output of the program
+
+![image-20260925201815963](C:\Users\jiaxi\AppData\Roaming\Typora\typora-user-images\image-20260925201815963.png)
+
+Therefore, the closeness centrality is vertex 2 with the smallest sum distance between other vertexes
