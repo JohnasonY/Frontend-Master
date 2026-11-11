@@ -1,0 +1,13 @@
+/ActivityProtocolInterface.class
+/AtomicSimulatorInterface.class
+/AtomicSimulatorUtil.class
+/CoordinatorInterface.class
+/CoupledCoordinatorInterface.class
+/CoupledSimulatorInterface.class
+/CouplingProtocolInterface.class
+/HierParent.class
+/atomicSimulator.class
+/coordinator.class
+/coreSimulatorInterface.class
+/coupledCoordinator.class
+/coupledSimulator.class

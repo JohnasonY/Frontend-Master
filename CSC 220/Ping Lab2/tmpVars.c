@@ -9,7 +9,7 @@ int main()
 
     ch1 = x;
     ch2 = y;
-    uc1 = 81;
+    uc1 = 337;
     x += 3;
     y += 3;
 
