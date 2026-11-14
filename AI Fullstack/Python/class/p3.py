@@ -52,11 +52,63 @@ class LinkedList:
 
     def __str__(self):
         current = self.head
+        result = ""
         while current != None:
-            print(current.data, "-> " if current.next != None else "", end="")
+            result += str(current.data)
+            result += " -> " if current.next != None else ""
             current = current.next
+        return result
 
-    def to_list():
+    def to_list(self):
+        result = []
+        current = self.head
+        while current != None:
+            result.append(current.data)
+            current = current.next
+        return result
+
+    def append(self, value):
+        current = self.head
+        while current.next and current.next != None:
+            current = current.next
+        # current.next == None
+        # create a new node with value
+        newNode = Node(value)
+        current.next = newNode
+        return value
+
+    def prepend(self, value):
+        newHead = Node(value)
+        newHead.next = self.head
+        self.head = newHead
+        return value
+
+    def insert(self, index, value):
+        if index == 0:
+            self.prepend(value)
+            return (index, value)
+        else:
+            # insert starting from index 1
+            prev = self.head
+            current = prev.next
+            curr_index = 1
+            while prev != None:
+                if curr_index == index:
+                    newNode = Node(value)
+                    newNode.next = current
+                    prev.next = newNode
+                    return (index, value)
+                else:
+                    prev = current
+                    if prev == None:
+                        return False
+                    current = current.next
+                    curr_index += 1
+            # prev == None, can not insert
+        # return false if can not insert
+        return False
+
+    def delete_by_value(self, value):
         pass
 
 
@@ -66,4 +118,15 @@ def callback(index, value):
 
 ll = LinkedList([2, 1, 3, 8, 6])
 # ll.traverse(callback)
-# ll.__str__()
+# print(ll.__str__())
+# print(ll.to_list())
+# ll.append(12)
+# ll.append(7)
+# print(ll.__str__())
+# ll1 = LinkedList([])
+# ll1.prepend(4)
+# print(ll1.__str__())
+# ll.prepend(5)
+# print(ll.__str__())
+ll.insert(5, 9)
+print(ll.__str__())
