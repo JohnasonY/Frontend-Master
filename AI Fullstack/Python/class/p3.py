@@ -109,14 +109,91 @@ class LinkedList:
         return False
 
     def delete_by_value(self, value):
-        pass
+        current = self.head
+        if current and current.data == value:
+            # delete head
+            self.head = self.head.next
+            return True
+        prev = current
+        current = current.next if current else None
+        while current != None:
+            if current.data == value:
+                # delete current node
+                prev.next = current.next
+                return True
+            else:
+                prev = current
+                current = current.next
+        return False
 
+    def delete_by_index(self, index):
+        current = self.head
+        if current and index == 0:
+            # delete head
+            value = self.head.data
+            self.head = self.head.next
+            return value
+        prev = current
+        current = current.next if current else None
+        cur_index = 1
+        while current != None:
+            if cur_index == index:
+                # delete the current node
+                value = current.data
+                prev.next = current.next
+                return value
+            else:
+                # update prev, current, cur_index
+                prev = current
+                current = current.next
+                cur_index += 1
+        #  out of bound
+        return None
+
+# find(value)	Find the first node whose value equals value and return its index. Return -1 if not found.
+    def find(self, value):
+        current = self.head
+        cur_index = 0
+        while current != None:
+            if current.data == value:
+                return cur_index
+            else:
+                current = current.next
+                cur_index += 1
+        # not found
+        return -1
+
+# get(index)	Return the value at the specified index. Return None if the index is out of range.
+    def get(self, index):
+        current = self.head
+        cur_index = 0
+        while current != None:
+            if cur_index == index:
+                return current.data
+            else:
+                current = current.next
+                cur_index += 1
+        # out of bound
+        return None
+
+# get_length()	Return the length of the linked list.
+    def get_length(self):
+        current = self.head
+        count = 0
+        while current != None:
+            count += 1
+            current = current.next
+        return count
+
+# is_empty()	Check whether the linked list is empty.
+    def is_empty(self):
+        return True if self.head == None else False
 
 def callback(index, value):
     print({index: value})
 
 
-ll = LinkedList([2, 1, 3, 8, 6])
+ll = LinkedList([2, 1, 3, 8, 3, 6])
 # ll.traverse(callback)
 # print(ll.__str__())
 # print(ll.to_list())
@@ -128,5 +205,15 @@ ll = LinkedList([2, 1, 3, 8, 6])
 # print(ll1.__str__())
 # ll.prepend(5)
 # print(ll.__str__())
-ll.insert(5, 9)
-print(ll.__str__())
+# ll.insert(5, 9)
+# print(ll.__str__())
+# ll1 = LinkedList([5, 3, 4, 5])
+# ll1.delete_by_value(4)
+# print(ll1.to_list())
+# ll1 = LinkedList([2, 5, 9, 4])
+# print(ll1.delete_by_index(7), ll1.to_list())
+# print(ll.get(6))
+# ll1 = LinkedList([1,2,5,7])
+# print(ll1.get_length())
+# ll1 = LinkedList([1])
+# print(ll1.is_empty())
